@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fOQgBgfAwvCUYUAHTrx+25ffIn5zKASCKA9yYFVceXR0c7KRj4UypoengjuWLvPQX/umfF9fNi2fHQoPi8eDcA==",
+  "dgSpecHash": "Ovpi1DVtDFKs/fdKajsRWBCiqs5XVJhYvaKltXLwqqaNdBHCbkA9S8mpb8KhiAl89Aj/SE5zw8KrKWUs8pc81Q==",
   "success": true,
-  "projectFilePath": "D:\\Sera Job Portal\\.vs\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
+  "projectFilePath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

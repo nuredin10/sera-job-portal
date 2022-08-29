@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sera Job Portal\\.vs\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
+      "projectUniqueName": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
       "projectName": "Sera-job-portal-api",
-      "projectPath": "D:\\Sera Job Portal\\.vs\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
+      "projectPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
       "packagesPath": "C:\\Users\\Nuredin\\.nuget\\packages\\",
-      "outputPath": "D:\\Sera Job Portal\\.vs\\Sera-job-portal-api\\obj\\",
+      "outputPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nuredin\\AppData\\Roaming\\NuGet\\NuGet.Config",
