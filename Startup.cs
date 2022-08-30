@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Sera_job_portal_api.Models.Employee_Model;
+using Sera_job_portal_api.Models.Employer_Model;
+using Sera_job_portal_api.Models.Job_Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +34,10 @@ namespace Sera_job_portal_api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sera_job_portal_api", Version = "v1" });
-            });
+});
+            services.AddSingleton<IEmployee_repository, Employee_Repository>();
+            services.AddSingleton<IEmployer_Repository, Employer_Repository>();
+            services.AddSingleton<IJob_Repository, Job_Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

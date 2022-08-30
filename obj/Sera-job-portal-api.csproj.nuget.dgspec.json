@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj": {}
+    "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj": {}
   },
   "projects": {
-    "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj": {
+    "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
+        "projectUniqueName": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj",
         "projectName": "Sera-job-portal-api",
-        "projectPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
-        "packagesPath": "C:\\Users\\Nuredin\\.nuget\\packages\\",
-        "outputPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\obj\\",
+        "projectPath": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj",
+        "packagesPath": "C:\\Users\\kimot\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nuredin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kimot\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
