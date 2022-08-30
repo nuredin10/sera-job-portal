@@ -41,7 +41,7 @@ export const EmployerHeader = () => {
             md={6}
             lg={6}>
             {EmployerNavItems.map((e, i) => (
-              <Grid item >
+              <Grid item key={i}>
                 <Link href={e.href} sx={{fontFamily: 'inter', textDecoration: "none", color: 'black'}}>{e.display}</Link>
               </Grid>
             ))}
