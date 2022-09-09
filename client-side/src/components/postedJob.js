@@ -14,7 +14,7 @@ const PostedJob =()=>{
                         <Button variant="contained" color="primary" size="small">Apply Now</Button>
                     </Box>
                     <Box sx={{mt: "5%"}}>
-                        <Box></Box>
+                        <Box> </Box>
                         <Typography variant="h6" color='text.primary'>UI Designer</Typography>
                         <Typography variant="body1" color='text.secondary'>Marketplace apps similar to olx or bigl but for EU market</Typography>
                         <Typography variant="caption" color='text.disabled'>10 mins ago</Typography>
