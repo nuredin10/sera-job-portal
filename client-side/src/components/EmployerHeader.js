@@ -6,8 +6,8 @@ const EmployerNavItems = [
     display: "Home",
   },
   {
-    href: "/employer/postJob",
-    display: "Post Job",
+    href: "/employer/jobs",
+    display: "Jobs",
   },
   {
     href: "/employer/messages",
@@ -41,13 +41,13 @@ export const EmployerHeader = () => {
             md={6}
             lg={6}>
             {EmployerNavItems.map((e, i) => (
-              <Grid item >
+              <Grid item key={i}>
                 <Link href={e.href} sx={{fontFamily: 'inter', textDecoration: "none", color: 'black'}}>{e.display}</Link>
               </Grid>
             ))}
           </Grid>
           <Grid item>
-            <Button variant="contained">Post Job</Button>
+            <Button href='postJobs' variant="contained">Post Job</Button>
           </Grid>
         </Grid>
       </Box>
