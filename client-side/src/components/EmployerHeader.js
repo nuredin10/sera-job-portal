@@ -6,8 +6,8 @@ const EmployerNavItems = [
     display: "Home",
   },
   {
-    href: "/employer/postJob",
-    display: "Post Job",
+    href: "/employer/jobs",
+    display: "Jobs",
   },
   {
     href: "/employer/messages",
@@ -47,7 +47,7 @@ export const EmployerHeader = () => {
             ))}
           </Grid>
           <Grid item>
-            <Button variant="contained">Post Job</Button>
+            <Button href='postJobs' variant="contained">Post Job</Button>
           </Grid>
         </Grid>
       </Box>
