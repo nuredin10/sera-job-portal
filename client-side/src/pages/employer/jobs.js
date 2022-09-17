@@ -60,7 +60,7 @@ const Jobs = () => {
               <PostedJob />
             </Box>
           </Grid>
-
+          
           <Grid item lg={3} sm={3} sx={{ mt: '1.5%', ml: '0' ,backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}}>
             <Box>
               <JobsRightSide />

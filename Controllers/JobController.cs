@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace Sera_job_portal_api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class JobController : ControllerBase
     {
@@ -20,10 +19,20 @@ namespace Sera_job_portal_api.Controllers
         }
 
         [HttpGet]
+        [Route("jobs/getAllJob")]
         public IActionResult getAllJobList()
         {
             var list = _context.Jobs.ToList();
             return Ok(list);
+        }
+
+        [Route("jobs/createJob")]
+        [HttpPost]
+        public IActionResult createJob(Job job)
+        {
+            _context.Jobs.Add(job);
+            _context.SaveChanges();
+            return Ok();
         }
     }
 }
