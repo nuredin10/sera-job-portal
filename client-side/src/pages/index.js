@@ -4,10 +4,10 @@ import styles from "../styles/Home.module.css";
 import { EmployerHeader } from "../components/EmployerHeader";
 import { EmployeeHeader } from "../components/EmployeeHeader";
 import { Container } from "@mui/system";
-import { Box,Grid } from "@mui/material";
+import { Box,Grid,Typography } from "@mui/material";
 
 export default function Home() {
-  
+  const type = "wsergwergwer"
   return (
     <>
       <Head>
@@ -28,18 +28,10 @@ export default function Home() {
           <Grid container >
 
 
-            <Grid 
-              item 
-              lg={12} 
-              sm={12} 
-              xl={12} 
-              xs={12}>
-              <EmployerHeader />
-              {/* <EmployeeHeader /> */}
-            </Grid>
+            
 
             <Grid item>
-
+              <Typography variant="h1" color="black">Home page here</Typography>
             </Grid>
           </Grid>
       </Box>

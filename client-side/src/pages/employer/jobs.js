@@ -31,13 +31,10 @@ const Jobs = () => {
           width: "100%",
           height: "auto",
           backgroundColor: "background.default",
+          pt: '3%'
         }}
       >
         <Grid container spacing={3}>
-          <Grid item lg={12} sm={12} xl={12} xs={12}>
-            <EmployerHeader />
-            {/* <EmployeeHeader /> */}
-          </Grid>
 
           <Grid item lg={3} sm={3} sx={{ mt: '1.5%', backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}} >
             <JobsLeftSide />
