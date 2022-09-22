@@ -21,11 +21,19 @@ namespace Sera_job_portal_api.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public IActionResult getAllJobList()
+        [HttpGet("GetAllEmployee")]
+        public IActionResult getAllEmployee()
         {
             var list = _context.Employees.ToList();
             return Ok(list);
+        }
+
+        [HttpPost("RegisterEmployee")]
+        public IActionResult RegisterEmployee( Employee employee)
+        {
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
+            return Ok();
         }
     }
 }
