@@ -1,18 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Sera_job_portal_api.Models.Employer_Model;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Sera_job_portal_api.Models;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Sera_job_portal_api.Controllers
 {
     public class EmployerController : Controller
     {
-        public IEmployer_Repository ERR;
-        public EmployerController(IEmployer_Repository _ERR)
+        private readonly ApplicationDbContext _context;
+        public EmployerController(ApplicationDbContext context)
         {
-               ERR= _ERR;
+            _context = context;
         }
-        public IActionResult Index()
+
+        [HttpGet]
+        public IActionResult getAllJobList()
         {
-            return View();
+            var list = _context.Employees.ToList();
+            return Ok(list);
         }
     }
 }

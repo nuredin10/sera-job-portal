@@ -91,3 +91,12 @@ D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\Sera-job-portal-api.cspr
 D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\Sera-job-portal-api.genruntimeconfig.cache
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Humanizer.dll
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.csproj.AssemblyReference.cache
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.AssemblyInfoInputs.cache
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.AssemblyInfo.cs
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.csproj.CoreCompileInputs.cache
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.dll
+C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.pdb
