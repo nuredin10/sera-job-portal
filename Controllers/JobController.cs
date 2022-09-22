@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sera_job_portal_api.Models;
-using Sera_job_portal_api.Models.Services;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
