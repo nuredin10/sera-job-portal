@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj",
+      "projectUniqueName": "C:\\Users\\kimot\\Documents\\sira jp\\Sera-job-portal-api.csproj",
       "projectName": "Sera-job-portal-api",
-      "projectPath": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj",
+      "projectPath": "C:\\Users\\kimot\\Documents\\sira jp\\Sera-job-portal-api.csproj",
       "packagesPath": "C:\\Users\\kimot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\obj\\",
+      "outputPath": "C:\\Users\\kimot\\Documents\\sira jp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kimot\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -257,13 +257,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4XYNwYVGFcHX+N8jkEJvC6xQj6HXz4ZoMvydi46krkHlF4n6koY6lgSof3Qh3BbEYoNMgPbbhmI5Whd3CB6FlQ==",
+  "dgSpecHash": "IO/jRiUB769k4bDArhDO5f6FMPsUEzl7wXUcPg/WoDSSzqQ6Zk644uNfcLZ1OdBnmPxtK68Z/J3firhxQTrRSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\Sera-job-portal-api.csproj",
+  "projectFilePath": "C:\\Users\\kimot\\Documents\\sira jp\\Sera-job-portal-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kimot\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\kimot\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
@@ -11,12 +11,5 @@
     "C:\\Users\\kimot\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\kimot\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\kimot\\Documents\\web2\\Sera_Job portal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
