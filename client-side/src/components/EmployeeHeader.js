@@ -51,7 +51,7 @@ export const EmployeeHeader = () => {
             lg={5}
           >
             {EmployeeNavItems.map((e, i) => (
-              <Grid item>
+              <Grid item key={i}>
                 <Link
                   href={e.href}
                   sx={{
