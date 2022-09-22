@@ -17,6 +17,7 @@ namespace Sera_job_portal_api.Controllers
         public JobController(ApplicationDbContext context)
         {
             _context = context;
+            //its naod
         }
 
         [HttpGet]
