@@ -4,14 +4,18 @@ import styles from "../styles/Home.module.css";
 import { EmployerHeader } from "../components/EmployerHeader";
 import { EmployeeHeader } from "../components/EmployeeHeader";
 import { Container } from "@mui/system";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import JobsLeftSide from "../components/JobsLeftSide";
 import JobsRightSide from "../components/JobsRightSide";
 import Posts from "../components/posts";
 import SearchBar from "../components/searchBar";
 import PostedJob from "../components/postedJob";
+import {useState} from 'react'
 
 const Jobs = () => {
+
+  const [searchValue, setSearchValue] = useState();
+
   return (
     <>
       <Head>
@@ -49,7 +53,8 @@ const Jobs = () => {
                 boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",
               }}
             >
-              <SearchBar />
+              <SearchBar setSearchValue={setSearchValue}/>
+              <Typography variant="h1" color="black">{searchValue}</Typography>
               <PostedJob />
               <PostedJob />
               <PostedJob />

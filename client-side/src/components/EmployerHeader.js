@@ -1,5 +1,6 @@
 import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
 import Head from 'next/head'
+
 const EmployerNavItems = [
   {
     href: "/employer",
@@ -45,11 +46,13 @@ export const EmployerHeader = () => {
             sm={12} 
             md={6}
             lg={6}>
+
             {EmployerNavItems.map((e, i) => (
               <Grid item key={i}>
                 <Link href={e.href} sx={{fontFamily: 'inter', textDecoration: "none", color: 'black'}}>{e.display}</Link>
               </Grid>
             ))}
+            
           </Grid>
           <Grid item>
             <Button href='postJobs' variant="contained">Post Job</Button>
