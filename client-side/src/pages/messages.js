@@ -1,9 +1,28 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import { Box, Grid, Typography, Button } from "@mui/material";
 import Head from 'next/head'
 import ChatSideBar from "../components/ChatSideBar";
 import ChatArea from '../components/ChatArea'
+import * as signalR from "@microsoft/signalr";
+
 const Messages = () => {
+
+  const connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44369/message")
+  .build();
+
+  connection.start();
+  const [text, setText] = useState();
+
+  const Message=(props)=>{
+    useEffect(()=>{
+      props.connection.on("SendToReact",message=>{
+        setText(message);
+      })
+    },[])
+
+    return <Typography variant="h1" color="black">{text}jkj</Typography>
+  }
+  
   return (
     <>
       <Head>
@@ -26,6 +45,7 @@ const Messages = () => {
           p: 3
         }}
       >
+        {/* <Message connection={connection}></Message> */}
         <Grid container spacing={4}>
           <Grid item lg={4} md={12} sm={12}>
                 <ChatSideBar></ChatSideBar>

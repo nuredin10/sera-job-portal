@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Sera_job_portal_api.Hubs;
 using Sera_job_portal_api.Models;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace Sera_job_portal_api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-
+            services.AddSignalR();
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
            "DefulatConnection")));
@@ -85,6 +86,7 @@ namespace Sera_job_portal_api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<MessageHub>("/message"); // <====== add this ======
             });
         }
     }

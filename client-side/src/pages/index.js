@@ -5,7 +5,7 @@ import { EmployerHeader } from "../components/EmployerHeader";
 import { EmployeeHeader } from "../components/EmployeeHeader";
 import { Container } from "@mui/system";
 import { Box,Grid,Typography } from "@mui/material";
-
+  
 export default function Home() {
   const type = "wsergwergwer"
   return (
