@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Sera_job_portal_api.Migrations
@@ -11,7 +11,7 @@ namespace Sera_job_portal_api.Migrations
                 name: "Jobs",
                 columns: table => new
                 {
-                    JobId = table.Column<int>(type: "int", nullable: false)
+                    JobId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     JobTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JobPrice = table.Column<long>(type: "bigint", nullable: false),
@@ -51,12 +51,41 @@ namespace Sera_job_portal_api.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    MessageId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MessageText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.MessageId);
+                    table.ForeignKey(
+                        name: "FK_Messages_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_UserId",
+                table: "Messages",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Jobs");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "Users");

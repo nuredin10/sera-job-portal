@@ -21,9 +21,9 @@ namespace Sera_job_portal_api.Migrations
 
             modelBuilder.Entity("Sera_job_portal_api.Models.Job", b =>
                 {
-                    b.Property<int>("JobId")
+                    b.Property<long>("JobId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CompanyName")
@@ -50,6 +50,29 @@ namespace Sera_job_portal_api.Migrations
                     b.HasKey("JobId");
 
                     b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("Sera_job_portal_api.Models.Message", b =>
+                {
+                    b.Property<long>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("MessageText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("Sera_job_portal_api.Models.User", b =>
@@ -104,6 +127,17 @@ namespace Sera_job_portal_api.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Sera_job_portal_api.Models.Message", b =>
+                {
+                    b.HasOne("Sera_job_portal_api.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

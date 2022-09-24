@@ -10,7 +10,7 @@ namespace Sera_job_portal_api.Models
     public class Job
     {
         [Key]
-        public int JobId { get; set; }
+        public long JobId { get; set; }
         public string JobTitle { get; set; }
         public long JobPrice { get; set; }
         public string JobDescription { get; set; }

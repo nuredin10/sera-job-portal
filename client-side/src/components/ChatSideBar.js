@@ -48,14 +48,33 @@ const Clients = [
 const ChatSideBar = () => {
   const clientStyle = {
     backgroundColor: "transparent",
-    display: 'flex',
+    display: "flex",
     py: 2,
-    cursor: 'pointer',
+    cursor: "pointer",
     "&:hover": {
-      
       backgroundColor: "headerBg.main",
     },
   };
+
+  const scrollStyle = { 
+    height: 400, 
+    overflow: "hidden", 
+    overflowY: "scroll",
+    '&::-webkit-scrollbar': {
+      width: '0.5em',
+      borderRadius: '10px'
+    },
+    '&::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(0,0,0,.3)',
+      outline: 'none',
+      borderRadius: '10px'
+    }
+  };
+
+
   return (
     <Box
       sx={{
@@ -64,7 +83,7 @@ const ChatSideBar = () => {
         pr: 3,
         borderRadius: 1,
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        height: '95vh' 
+        height: "95vh",
       }}
     >
       <Box
@@ -89,11 +108,9 @@ const ChatSideBar = () => {
         Clients
       </Typography>
       <Divider sx={{ borderColor: "#C4C4C4", mt: 3 }} />
-      <Box sx={{height: 400,
-          overflow: "hidden",
-          overflowY: "scroll",}}>
+      <Box sx={scrollStyle}>
         {Clients.map((e, i) => (
-          <>
+          <Box key={i}>
             <Box sx={clientStyle}>
               <Avatar src={e.Avatar} sx={{ ml: 3 }}></Avatar>
               <Box sx={{ px: 2 }}>
@@ -105,8 +122,8 @@ const ChatSideBar = () => {
                 </Typography>
               </Box>
             </Box>
-            <Divider sx={{ borderColor: "#C4C4C4", }} />
-          </>
+            <Divider sx={{ borderColor: "#C4C4C4" }} />
+          </Box>
         ))}
       </Box>
     </Box>

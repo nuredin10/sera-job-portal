@@ -3,19 +3,25 @@ import { Box, Grid, Typography, Button, Divider, Avatar } from "@mui/material";
 const Chat = ({ message, status, time }) => {
   const chatStyle = {
     backgroundColor: status == "outgoing" ? "#42032C" : "#C4C4C4",
-    maxWidth: "50%",
-    minWidth: "150px",
+    // maxWidth: "50%",
+    // minWidth: "10%",
     padding: 1,
+    my: 3,
+    maxWidth: "calc(60% - 130px)",
     borderRadius: status == "outgoing" ? '10px 10px 0px 10px' : '10px 10px 10px 0px',
-    float: status == "outgoing" ? "right" : "left",
-    clear: status == "outgoing" ? "left" : "right",
+    display: 'block',
+    marginLeft: status == "outgoing" && "auto",
+    marginRight: status == "incoming" && "auto",
+    // clear: status == "outgoing" ? "right" : "left",
+    color: status == "outgoing" ? "white" : "black",
+    
   };
   return (
     <Box sx={chatStyle}>
-      <Typography color="black" variant="body1">
+      <Typography variant="body1">
         {message}
       </Typography>
-      <Typography color="black" variant="caption">
+      <Typography  variant="caption">
         {time}
       </Typography>
     </Box>

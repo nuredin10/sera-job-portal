@@ -11,18 +11,18 @@ const Messages = () => {
   .build();
 
   connection.start();
-  const [text, setText] = useState();
+  const [message, setMessage] = useState();
 
   const Message=(props)=>{
     useEffect(()=>{
       props.connection.on("SendToReact",message=>{
-        setText(message);
+        setMessage(message);
       })
     },[])
-
-    return <Typography variant="h1" color="black">{text}jkj</Typography>
+    
   }
   
+  // console.log(mesage)
   return (
     <>
       <Head>
@@ -45,13 +45,13 @@ const Messages = () => {
           p: 3
         }}
       >
-        {/* <Message connection={connection}></Message> */}
+        <Message connection={connection}></Message>
         <Grid container spacing={4}>
           <Grid item lg={4} md={12} sm={12}>
                 <ChatSideBar></ChatSideBar>
           </Grid>
           <Grid item lg={8} md={12} sm={12}>
-            <ChatArea></ChatArea>
+            <ChatArea message={message}></ChatArea>
           </Grid>
         </Grid>
       </Box>

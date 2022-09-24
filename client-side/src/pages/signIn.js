@@ -31,7 +31,7 @@ const SignIn = () => {
     axios
       .post("https://localhost:44369/api/Auth/signin", user)
       .then(function (response) {
-        checkUser
+        console.log(response)
       })
       .catch(function (error) {
         console.log(error);
@@ -94,7 +94,7 @@ const SignIn = () => {
                     label="Email"
                     type="text"
                     fullWidth
-                    {...register("Email")}
+                      {...register("Email")}
                   />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>

@@ -9,8 +9,12 @@ namespace Sera_job_portal_api.Models
     public class Message
     {
         [Key]
-        public string MessageId { get; set; }
+        public long MessageId { get; set; }
         public string MessageText { get; set; }
-        
+        public DateTime Time { get; set; }
+        public long UserId { get; set; }
+
+        public virtual User User { get; set; }
+
     }
 }
