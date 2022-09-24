@@ -1,17 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "Ovpi1DVtDFKs/fdKajsRWBCiqs5XVJhYvaKltXLwqqaNdBHCbkA9S8mpb8KhiAl89Aj/SE5zw8KrKWUs8pc81Q==",
-  "success": true,
-  "projectFilePath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-    "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\Nuredin\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "C:\\Users\\Nuredin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
-    "C:\\Users\\Nuredin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "C:\\Users\\Nuredin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
-=======
   "dgSpecHash": "7nNb2IeayoiKF2xEZh0SunLeFU5hrnNjHPa/TNyKyCM/GDQykYMM2jolgFdtlnWARVOmh5RKjXGWbAA6XemvkQ==",
   "success": true,
   "projectFilePath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
@@ -115,7 +103,13 @@
     "C:\\Users\\Nuredin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
->>>>>>> nuredin-branch
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\Sera Job Portal\\Sera-job-portal-api\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
