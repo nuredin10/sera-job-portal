@@ -62,7 +62,6 @@ D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.IdentityModel.
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.OpenApi.dll
-D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -100,6 +99,7 @@ C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.MvcApplica
 C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.dll
 C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.pdb
+<<<<<<< HEAD
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\bin\Debug\net5.0\appsettings.json
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\bin\Debug\net5.0\client-side\.eslintrc.json
@@ -164,3 +164,6 @@ C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\refint\Sera-jo
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\Sera-job-portal-api.pdb
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\Sera-job-portal-api.genruntimeconfig.cache
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\ref\Sera-job-portal-api.dll
+=======
+D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+>>>>>>> main

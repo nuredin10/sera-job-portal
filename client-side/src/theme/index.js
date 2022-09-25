@@ -169,9 +169,14 @@ export const theme = createTheme({
       dark: '#0B815A',
     //   contrastText: '#FFFFFF'
     },
+
     headerBg: {
         main: '#F1EFDC',
+    },
 
+    chatBackground: {
+      outgoing: 'C4C4C4',
+      incoming: '42032C'
     },
 
     success: {

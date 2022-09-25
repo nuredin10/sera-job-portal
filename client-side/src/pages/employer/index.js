@@ -61,10 +61,7 @@ const Employer = () => {
         }}
       >
         <Grid container spacing={0}>
-          <Grid item lg={12} sm={12} xl={12} xs={12}>
-            <EmployerHeader />
-            {/* <EmployeeHeader /> */}
-          </Grid>
+          
           <Grid item sx={{width: '100%', height: '70vh'}}>
             <Box style={styles.paperContainer}>
                 <Typography variant='h2' sx={{marginBottom: '3%'}}>Welcome Employee</Typography>

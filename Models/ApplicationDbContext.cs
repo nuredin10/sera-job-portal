@@ -14,7 +14,8 @@ namespace Sera_job_portal_api.Models
         }
 
         public DbSet<Job> Jobs { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Employer> Employers { get; set; }
+        public DbSet<User> Users { get; set; }
+        //public DbSet<Employee> Employees { get; set; }
+        //public DbSet<Employer> Employers { get; set; }
     }
 }
