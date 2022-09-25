@@ -5552,19 +5552,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nuredin\\.nuget\\packages\\": {}
+    "C:\\Users\\TUF\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
+      "projectUniqueName": "C:\\Users\\TUF\\Source\\Repos\\sera-job-portal\\Sera-job-portal-api.csproj",
       "projectName": "Sera-job-portal-api",
-      "projectPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
-      "packagesPath": "C:\\Users\\Nuredin\\.nuget\\packages\\",
-      "outputPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\obj\\",
+      "projectPath": "C:\\Users\\TUF\\Source\\Repos\\sera-job-portal\\Sera-job-portal-api.csproj",
+      "packagesPath": "C:\\Users\\TUF\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\TUF\\Source\\Repos\\sera-job-portal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nuredin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TUF\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5627,8 +5627,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\TUF\\Source\\Repos\\sera-job-portal\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

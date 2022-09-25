@@ -36,5 +36,15 @@ namespace Sera_job_portal_api.Controllers
             var data = _context.Users.ToList();
             return Ok(_context.Users.Where(e => e.UserId == Int32.Parse(selectedData)));
         }
+        [Authorize]
+        [HttpDelete]
+        public IActionResult removeUser(User user)
+        {
+
+            _context.Jobs.Remove(_context.Jobs.Find(user));
+            _context.SaveChanges();
+            return Ok();
+
+        }
     }
 }

@@ -34,5 +34,20 @@ namespace Sera_job_portal_api.Controllers
             _context.SaveChanges();
             return Ok();
         }
+        [HttpPost]
+        public IActionResult Editjob(Job job)
+        {
+            _context.Jobs.Update(_context.Jobs.Find(job));
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult Removejobs(int id)
+        {
+            _context.Jobs.Remove(_context.Jobs.Find(id));
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
