@@ -169,9 +169,14 @@ export const theme = createTheme({
       dark: '#0B815A',
     //   contrastText: '#FFFFFF'
     },
+
     headerBg: {
         main: '#F1EFDC',
+    },
 
+    chatBackground: {
+      outgoing: 'C4C4C4',
+      incoming: '42032C'
     },
 
     success: {
@@ -199,8 +204,8 @@ export const theme = createTheme({
       contrastText: '#FFFFFF'
     },
     text: {
-      primary: '#121828',
-      secondary: '#65748B',
+      primary: '#18181B',
+      secondary: '#71717A',
       disabled: 'rgba(55, 65, 81, 0.48)'
     }
   },
