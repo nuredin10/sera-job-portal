@@ -2,6 +2,9 @@ import { EmployerHeader } from "./EmployerHeader"
 import { EmployeeHeader } from "./EmployeeHeader"
 
 const Layout =({children})=>{
+
+    
+
     return(
         <>
             <EmployerHeader/>

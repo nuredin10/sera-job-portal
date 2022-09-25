@@ -100,3 +100,4 @@ C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.MvcApplica
 C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.dll
 C:\Users\kimot\Documents\sira jp\obj\Debug\net5.0\Sera-job-portal-api.pdb
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Newtonsoft.Json.dll

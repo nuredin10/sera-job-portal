@@ -3,18 +3,19 @@ import { theme } from "../theme";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import Layout from "../components/Layout";
+function MyApp({ Component, pageProps}) {
 
-function MyApp({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Layout>
+        {/* <Layout> */}
           <Component {...pageProps} />
-        </Layout>
+        {/* </Layout> */}
       </ThemeProvider>
     </>
   );
 }
+
 
 export default MyApp;

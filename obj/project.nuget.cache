@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7nNb2IeayoiKF2xEZh0SunLeFU5hrnNjHPa/TNyKyCM/GDQykYMM2jolgFdtlnWARVOmh5RKjXGWbAA6XemvkQ==",
+  "dgSpecHash": "1V91IMW0w8R3itzXe4w/7bKVCGJ80lhA4w9fUQHMA4LYzhGGaUrI1sinsWOeVRpy0FXf5zX7BE12JgAhk1hLew==",
   "success": true,
   "projectFilePath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Nuredin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\Nuredin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",

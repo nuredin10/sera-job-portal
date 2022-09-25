@@ -23,23 +23,40 @@ import {
 
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Router from "next/router";
+
 
 const SignIn = () => {
   const { register, handleSubmit } = useForm();
+  const [currentUser, setCurrentUser] = useState();
 
   const newUser = (user) => {
-    axios
-      .post("https://localhost:44369/api/Auth/signin", user)
+    axios.post("https://localhost:44369/api/Auth/signin", user)
       .then(function (response) {
-        console.log(response)
-      })
+        console.log(response.data.user)
+        localStorage.setItem("token",response.data.token)
+        setCurrentUser(response.data.user)
+        
+        currentUser.role === "Employee" ? (
+          Router.push({
+            pathname: "/employee",
+            query: currentUser
+          })
+        ) : (
+          Router.push({
+            pathname: "/employer",
+            query: currentUser
+          })
+        )
+
+
+      })  
       .catch(function (error) {
         console.log(error);
       });
-
-    
   };
 
+  
   return (
     <>
       <Head>

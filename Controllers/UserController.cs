@@ -36,5 +36,13 @@ namespace Sera_job_portal_api.Controllers
             var data = _context.Users.ToList();
             return Ok(_context.Users.Where(e => e.UserId == Int32.Parse(selectedData)));
         }
+
+        [Authorize]
+        [HttpGet("getAllUser")]
+        public IActionResult GetALlUser()
+        {
+            var data = _context.Users.ToList();
+            return Ok(data);
+        }
     }
 }

@@ -4,14 +4,41 @@ import styles from "../../styles/Home.module.css";
 import { EmployerHeader } from "../../components/EmployerHeader";
 import { EmployeeHeader } from "../../components/EmployeeHeader";
 import { Container } from "@mui/system";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import JobsLeftSide from "../../components/JobsLeftSide";
 import JobsRightSide from "../../components/JobsRightSide";
 import Posts from "../../components/posts";
 import SearchBar from "../../components/searchBar";
 import PostedJob from "../../components/postedJob";
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 
 const Jobs = () => {
+
+  const [searchValue, setSearchValue] = useState();
+
+  const [jobs, setJobs] = useState([]);
+  
+
+  useEffect(()=>{
+
+    const config ={
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      }
+    }
+
+      axios.get("https://localhost:44369/jobs/getAllJob",config)
+      .then(function(res){
+        // console.log(res)
+        setJobs(res.data)
+        // console.log(jobs)
+      })
+      .catch(function(res){
+        console.log(res)
+      })
+  })
+
   return (
     <>
       <Head>
@@ -31,11 +58,12 @@ const Jobs = () => {
           width: "100%",
           height: "auto",
           backgroundColor: "background.default",
-          pt: '3%'
         }}
       >
         <Grid container spacing={3}>
-
+        <Grid item lg={12} md={12} sm={12}>
+            <EmployerHeader/>
+          </Grid>
           <Grid item lg={3} sm={3} sx={{ mt: '1.5%', backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}} >
             <JobsLeftSide />
           </Grid>
@@ -50,14 +78,14 @@ const Jobs = () => {
                 boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",
               }}
             >
-              <SearchBar />
-              <PostedJob />
-              <PostedJob />
-              <PostedJob />
-              <PostedJob />
+              <SearchBar setSearchValue={setSearchValue}/>
+              <Typography variant="h1" color="black">{searchValue}</Typography>
+              {jobs && jobs.map((job)=>(
+                <PostedJob job={job}/>
+              ))}
             </Box>
           </Grid>
-          
+
           <Grid item lg={3} sm={3} sx={{ mt: '1.5%', ml: '0' ,backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}}>
             <Box>
               <JobsRightSide />

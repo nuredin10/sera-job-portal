@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sera_job_portal_api.Models;
 
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Sera_job_portal_api.Controllers
 {
+    [Authorize]
     [ApiController]
     public class JobController : ControllerBase
     {
@@ -26,9 +28,10 @@ namespace Sera_job_portal_api.Controllers
             return Ok(list);
         }
 
-        [Route("jobs/createJob")]
+
+        [Route("jobs/postJob")]
         [HttpPost]
-        public IActionResult createJob(Job job)
+        public IActionResult postJob(Job job)
         {
             _context.Jobs.Add(job);
             _context.SaveChanges();

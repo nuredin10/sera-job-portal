@@ -18,7 +18,6 @@ const Employer = () => {
             flexDirection: 'column'
         }
     };
-
     const buttonStyle = {
         backgroundColor: 'headerBg.main',
         color: 'primary.main',
@@ -31,14 +30,13 @@ const Employer = () => {
           backgroundColor: 'transparent'
         },
       };
-
-
     const imageStyle = {
         width: '80%',
         height: '100%',
         borderRadius: "10px",
         boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
     }
+
   return (
     <>
       <Head>
@@ -61,7 +59,9 @@ const Employer = () => {
         }}
       >
         <Grid container spacing={0}>
-          
+          <Grid item lg={12} md={12} sm={12}>
+            <EmployerHeader/>
+          </Grid>
           <Grid item sx={{width: '100%', height: '70vh'}}>
             <Box style={styles.paperContainer}>
                 <Typography variant='h2' sx={{marginBottom: '3%'}}>Welcome Employee</Typography>

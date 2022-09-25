@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Sera_job_portal_api.Models;
 using System;
 using System.Collections.Generic;
@@ -67,7 +69,14 @@ namespace Sera_job_portal_api.Controllers
                         expires: DateTime.UtcNow.AddMinutes(10),
                         signingCredentials: signIn);
 
-                    return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                    var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+                    var response = new
+                    {
+                        token = jwtToken,
+                        user = user
+                    };
+
+                    return Ok(response);
                 }
                 else
                 {

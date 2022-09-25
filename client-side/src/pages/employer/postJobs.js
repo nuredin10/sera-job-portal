@@ -27,11 +27,39 @@ import {
 // import { useForm } from "react-hook-form";
 import Router from "next/router";
 import Link from "@mui/material/Link";
+import axios from "axios";
+import { useForm } from 'react-hook-form'
+import {useState,useEffect} from 'react'
 
 const PostJob = () => {
-  const handleSubmit = () => {
-    console.log("asd");
+  
+  const { register, handleSubmit } = useForm();
+  const [jobType, setJobType] = useState('')
+  const handleChangeJobType=(e)=>{
+    setJobType(e.target.value)
+  }
+  const newJob = (job) => {
+
+    const postedJob = {
+      ...job,
+      JobType: jobType
+    }
+    const config ={
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      }
+    }
+
+    axios.post("https://localhost:44369/jobs/postJob", postedJob, config)
+      .then(function (response) {
+        console.log(response.data)
+        localStorage.setItem("token",response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
+
 
   return (
     <>
@@ -55,10 +83,6 @@ const PostJob = () => {
         }}
       >
         <Grid container spacing={3} sx={{ backgroundColor: "primary.paper" }}>
-          <Grid item lg={12} sm={12} xl={12} xs={12}>
-            <EmployerHeader />
-            {/* <EmployeeHeader /> */}
-          </Grid>
           <Grid>
             <Grid
               item
@@ -96,7 +120,7 @@ const PostJob = () => {
                   Fill out the form
                 </Typography>
                 {/* <LocalizationProvider dateAdapter={AdapterDateFns}> */}
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(newJob)}>
                   <Grid container spacing={4}>
                     <Grid item xs={12} sm={12}>
                       <TextField
@@ -105,7 +129,7 @@ const PostJob = () => {
                         label="Job Title"
                         type="text"
                         fullWidth
-                        // {...register("finished_name")}
+                        {...register("JobTitle")}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -115,7 +139,7 @@ const PostJob = () => {
                         label="Company Name"
                         type="text"
                         fullWidth
-                        // {...register("finished_spec")}
+                        {...register("CompanyName")}
                       />
                     </Grid>
                     <Grid item xs={12} sm={12}>
@@ -125,7 +149,7 @@ const PostJob = () => {
                         label="Price"
                         type="text"
                         fullWidth
-                        // {...register("finished_quantity")}
+                        {...register("JobPrice")}
                       />
                     </Grid>
                     <Grid item xs={12} sm={12}>
@@ -135,7 +159,7 @@ const PostJob = () => {
                         label="Description"
                         type="text"
                         fullWidth
-                        // {...register("finished_description")}
+                        {...register("JobDescription")}
                       />
                     </Grid>
                     <Grid item xs={12} sm={12}>
@@ -146,14 +170,14 @@ const PostJob = () => {
                         <Select
                           labelId="demo-simple-select-label"
                           id="JobType"
-                          value="Job Type"
+                          value={jobType}
                           label="Job Type"
-                          // onChange={handleChange}
+                          onChange={handleChangeJobType}
                         >
-                          <MenuItem value={10}>Full-Time</MenuItem>
-                          <MenuItem value={20}>Part-Time</MenuItem>
-                          <MenuItem value={30}>Freelance</MenuItem>
-                          <MenuItem value={40}>Remote</MenuItem>
+                          <MenuItem value="Full Time">Full-Time</MenuItem>
+                          <MenuItem value="Part Time">Part-Time</MenuItem>
+                          <MenuItem value="Freelance">Freelance</MenuItem>
+                          <MenuItem value="Remote">Remote</MenuItem>
                         </Select>
                       </FormControl>
                     </Grid>
@@ -165,7 +189,7 @@ const PostJob = () => {
                         label="Location"
                         type="text"
                         fullWidth
-                        // {...register("finished_materialunit")}
+                        {...register("Location")}
                       />
                     </Grid>
                     

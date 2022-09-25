@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Sera_job_portal_api.Hubs;
@@ -23,6 +24,7 @@ namespace Sera_job_portal_api.Controllers
             _messageHub = messageHub;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(Message message)
         {

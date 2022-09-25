@@ -12,10 +12,10 @@ import Chat from "./Chat";
 import { TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 // import Picker from "emoji-picker-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef} from "react";
 import MoodIcon from "@mui/icons-material/Mood";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import axios from './axios'
 
 const ChatArea = (props) => {
   const chats = [
@@ -117,7 +117,7 @@ const ChatArea = (props) => {
 
   // const [value, setValue] = useState("");
   // const [message, setMessage] = useState("");
-  const { register, handleSubmit, reset} = useForm();
+  const { register, handleSubmit, reset } = useForm();
   // const [chosenEmoji, setChosenEmoji] = useState(null);
   // const [emojiSelector, setEmojiSelector] = useState(false);
 
@@ -131,7 +131,7 @@ const ChatArea = (props) => {
   // const messageOnChangeHandler =(e)=>{
   //   setValue(e.target.value);
   //   // console.log(value)
-    
+
   // }
 
   // const handleKeyDown = event => {
@@ -140,10 +140,9 @@ const ChatArea = (props) => {
   //   }
   // };
 
-  const sendHandler =(text)=>{
-  
-    // var currentdate = new Date(); 
-var datetime  = new Date().toJSON()/* = currentdate.getFullYear()+ "-"
+  const sendHandler = (text) => {
+    // var currentdate = new Date();
+    var datetime = new Date().toJSON(); /* = currentdate.getFullYear()+ "-"
                 + (currentdate.getMonth()+1)  + "-" 
                 + currentdate.getDate()   
                 + currentdate.getHours() + ":"  
@@ -151,22 +150,33 @@ var datetime  = new Date().toJSON()/* = currentdate.getFullYear()+ "-"
                 + currentdate.getSeconds(); */
 
     const message = {
-      ...text, "Time" : datetime,"UserId": 1
-    }
+      ...text,
+      Time: datetime,
+      UserId: 1,
+    };
 
-    
-    
     reset();
-    axios.post("https://localhost:44369/api/message",message)
-    .then(function(response){
-      console.log(response)
-    })
-    .catch(function(response){
-      console.log(response)
-    })
 
     
-  }
+    axios.post("/api/message", message)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (response) {
+        console.log(response);
+      });
+  };
+
+  const myRef= useRef(null);
+  const scrollToMyRef = () => {
+        if (myRef.current) {
+            myRef.current.scrollTop = myRef.current.scrollHeight
+        }
+    };
+
+  useEffect(() => {
+    scrollToMyRef();
+  }, [props.message]);
   return (
     <Box
       sx={{
@@ -190,47 +200,55 @@ var datetime  = new Date().toJSON()/* = currentdate.getFullYear()+ "-"
         </Box>
       </Box>
       <Divider sx={{ borderColor: "#C4C4C4", my: 2 }} />
-      <Box sx={chatStyle}>
-        {props.message.map((e, i) => (
-          <Chat key={i} message={e.messageText} status={e.status} time={e.Time}></Chat>
-        ))}
+      <Box sx={chatStyle} ref={myRef}>
+        {props.message &&
+          props.message.map((e, i) => (
+            <Chat
+              key={i}
+              message={e.messageText}
+              status={e.status}
+              time={e.Time}
+            ></Chat>
+          ))}
       </Box>
       <Box>
         <form onSubmit={handleSubmit(sendHandler)}>
-        <Box
-          sx={{
-            width: "100%",
-            display: "flex",
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
 
-            alignItems: "center",
-          }}
-        >
-          <TextField
-            variant="outlined"
-            size="small"
-            name="messageText"
-            sx={{ width: "95%", outline: "none" }}
-            placeholder="search client..."
-            // value={value}
-            // onChange={messageOnChangeHandler}
-            // onKeyDown={handleKeyDown}
-            {...register("messageText")}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">
-                  {/* {emojiSelector? <Picker onEmojiClick={onEmojiClick} /> : null} */}
-                  <IconButton>
-                    <MoodIcon /* onClick={emojiOnClickHandler} */ color="primary" />
-                  </IconButton>
-                  <IconButton>
-                    <SendIcon onClick={sendHandler}color="primary" />
-                  </IconButton>
-                </InputAdornment>
-              ),
+              alignItems: "center",
             }}
-          />
-        </Box>
-          </form>
+          >
+            <TextField
+              variant="outlined"
+              size="small"
+              name="messageText"
+              sx={{ width: "95%", outline: "none" }}
+              placeholder="search client..."
+              // value={value}
+              // onChange={messageOnChangeHandler}
+              // onKeyDown={handleKeyDown}
+              {...register("messageText")}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="start">
+                    {/* {emojiSelector? <Picker onEmojiClick={onEmojiClick} /> : null} */}
+                    <IconButton>
+                      <MoodIcon
+                        /* onClick={emojiOnClickHandler} */ color="primary"
+                      />
+                    </IconButton>
+                    <IconButton>
+                      <SendIcon onClick={sendHandler} color="primary" />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+        </form>
       </Box>
     </Box>
   );

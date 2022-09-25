@@ -1,6 +1,6 @@
 import { Button, Container, Box, Grid, Link, Typography,Avatar } from "@mui/material";
 
-const PostedJob =()=>{
+const PostedJob =({job})=>{
     return(
         <>
             <Box sx={{mt: '3%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -9,15 +9,15 @@ const PostedJob =()=>{
                     <Box sx={{display: 'flex', justifyContent:'space-between', alignItems:'center'}}>
                         <Box sx={{display: 'flex', alignItems: 'center',}}>
                             <Avatar src="../../logo.png"></Avatar>
-                            <Typography variant="subtitle1" color="primary" sx={{ml: 1}}>Agency Analytics</Typography>
+                            <Typography variant="subtitle1" color="primary" sx={{ml: 1}}>{job.companyName}</Typography>
                         </Box>
                         <Button variant="contained" color="primary" size="small">Apply Now</Button>
                     </Box>
                     <Box sx={{mt: "5%"}}>
                         <Box> </Box>
-                        <Typography variant="h6" color='text.primary'>UI Designer</Typography>
-                        <Typography variant="body1" color='text.secondary'>Marketplace apps similar to olx or bigl but for EU market</Typography>
-                        <Typography variant="caption" color='text.disabled'>10 mins ago</Typography>
+                        <Typography variant="h6" color='text.primary'>{job.jobTitle}</Typography>
+                        <Typography variant="body1" color='text.secondary'>{job.jobDescription}</Typography>
+                        <Typography variant="caption" color='text.disabled'>{job.postedDate}</Typography>
                     </Box>
                 </Box>
             </Box>

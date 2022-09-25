@@ -10,11 +10,33 @@ import JobsRightSide from "../components/JobsRightSide";
 import Posts from "../components/posts";
 import SearchBar from "../components/searchBar";
 import PostedJob from "../components/postedJob";
-import {useState} from 'react'
-
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 const Jobs = () => {
 
   const [searchValue, setSearchValue] = useState();
+
+  const [jobs, setJobs] = useState([]);
+  
+
+  useEffect(()=>{
+
+    const config ={
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      }
+    }
+
+      axios.get("https://localhost:44369/jobs/getAllJob",config)
+      .then(function(res){
+        // console.log(res)
+        setJobs(res.data)
+        // console.log(jobs)
+      })
+      .catch(function(res){
+        console.log(res)
+      })
+  })
 
   return (
     <>
@@ -55,10 +77,9 @@ const Jobs = () => {
             >
               <SearchBar setSearchValue={setSearchValue}/>
               <Typography variant="h1" color="black">{searchValue}</Typography>
-              <PostedJob />
-              <PostedJob />
-              <PostedJob />
-              <PostedJob />
+              {jobs && jobs.map((job)=>(
+                <PostedJob job={job}/>
+              ))}
             </Box>
           </Grid>
 
