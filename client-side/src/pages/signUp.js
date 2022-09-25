@@ -223,7 +223,8 @@ const SignUp = () => {
       </Box>
     </>
   );
+}
 };
 
-}
+
 export default SignUp;
