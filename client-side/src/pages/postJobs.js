@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { EmployerHeader } from "../../components/EmployerHeader";
+import { EmployerHeader } from "../components/EmployerHeader";
 import {
   FormControl,
   FormLabel,
@@ -30,8 +30,18 @@ import Link from "@mui/material/Link";
 import axios from "axios";
 import { useForm } from 'react-hook-form'
 import {useState,useEffect} from 'react'
+import {useRouter} from 'next/router'
 
 const PostJob = () => {
+
+  const router = useRouter()
+  const {
+    query: {loginUser}
+  }  = router
+
+  const props = {
+    loginUser
+  }
   
   const { register, handleSubmit } = useForm();
   const [jobType, setJobType] = useState('')
@@ -42,21 +52,25 @@ const PostJob = () => {
 
     const postedJob = {
       ...job,
-      JobType: jobType
+      JobType: jobType,
+      userId: props.loginUser
     }
+
     const config ={
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       }
     }
 
+    // console.log(postedJob,config)
     axios.post("https://localhost:44369/jobs/postJob", postedJob, config)
       .then(function (response) {
-        console.log(response.data)
-        localStorage.setItem("token",response.data)
+        console.log(response.data,"sfvsdfvsdf")
+        Router.push('/jobs')
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.message);
+        
       });
   };
 

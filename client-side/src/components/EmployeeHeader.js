@@ -66,7 +66,7 @@ export const EmployeeHeader = () => {
             ))}
           </Grid>
           <Grid item>
-            <Button variant="contained">Post Job</Button>
+            <Button variant="contained">Log Out</Button>
           </Grid>
         </Grid>
       </Box>

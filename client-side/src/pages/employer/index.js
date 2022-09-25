@@ -2,8 +2,19 @@ import Head from "next/head";
 import Image from "next/image";
 import {Box, Grid, Button, Typography} from '@mui/material'
 import { EmployerHeader } from "../../components/EmployerHeader";
+import {useRouter} from 'next/router'
 
 const Employer = () => {
+  const router = useRouter()
+  const {
+    query: {loginUser}
+  }  = router
+
+  const props = {
+    loginUser
+  }
+
+
 
     const styles = {
         paperContainer: {
@@ -60,11 +71,11 @@ const Employer = () => {
       >
         <Grid container spacing={0}>
           <Grid item lg={12} md={12} sm={12}>
-            <EmployerHeader/>
+            <EmployerHeader loginUser={props.loginUser}/>
           </Grid>
           <Grid item sx={{width: '100%', height: '70vh'}}>
             <Box style={styles.paperContainer}>
-                <Typography variant='h2' sx={{marginBottom: '3%'}}>Welcome Employee</Typography>
+                <Typography variant='h2' sx={{marginBottom: '3%'}}>welcome</Typography>
                 <Button variant='contained' sx={buttonStyle}>See Latest Jobs</Button>
             </Box>      
           </Grid>

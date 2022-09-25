@@ -4,6 +4,7 @@ import Head from 'next/head'
 import ChatSideBar from "../components/ChatSideBar";
 import ChatArea from '../components/ChatArea'
 import * as signalR from "@microsoft/signalr";
+import {useRouter } from 'next/router'
 
 const Messages = () => {
 
@@ -21,8 +22,16 @@ const Messages = () => {
     },[])
     
   }
-  
-  // console.log(mesage)
+
+  const router = useRouter()
+  const {
+    query: {loginUser}
+  }  = router
+
+  const props = {
+    loginUser
+  }
+  console.log(props.loginUser)
   return (
     <>
       <Head>

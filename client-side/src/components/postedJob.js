@@ -1,6 +1,12 @@
 import { Button, Container, Box, Grid, Link, Typography,Avatar } from "@mui/material";
+import Router from 'next/router'
 
 const PostedJob =({job})=>{
+
+
+    const applyOnClickHandler=()=>{
+        
+    }
     return(
         <>
             <Box sx={{mt: '3%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -11,7 +17,7 @@ const PostedJob =({job})=>{
                             <Avatar src="../../logo.png"></Avatar>
                             <Typography variant="subtitle1" color="primary" sx={{ml: 1}}>{job.companyName}</Typography>
                         </Box>
-                        <Button variant="contained" color="primary" size="small">Apply Now</Button>
+                        <Button variant="contained" color="primary" size="small" onClick={applyOnClickHandler}>Apply Now</Button>
                     </Box>
                     <Box sx={{mt: "5%"}}>
                         <Box> </Box>

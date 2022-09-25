@@ -47,7 +47,12 @@ namespace Sera_job_portal_api.Migrations
                     b.Property<DateTime>("PostedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("JobId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Jobs");
                 });
@@ -127,6 +132,17 @@ namespace Sera_job_portal_api.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Sera_job_portal_api.Models.Job", b =>
+                {
+                    b.HasOne("Sera_job_portal_api.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Sera_job_portal_api.Models.Message", b =>

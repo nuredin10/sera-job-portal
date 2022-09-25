@@ -17,7 +17,7 @@ const Jobs = () => {
   const [searchValue, setSearchValue] = useState();
 
   const [jobs, setJobs] = useState([]);
-  
+
 
   useEffect(()=>{
 
@@ -36,7 +36,9 @@ const Jobs = () => {
       .catch(function(res){
         console.log(res)
       })
-  })
+  },[])
+  
+  console.log(jobs)
 
   return (
     <>
@@ -60,6 +62,9 @@ const Jobs = () => {
         }}
       >
         <Grid container spacing={3}>
+          <Grid item lg={12} md={12} sm={12}>
+            <EmployerHeader/>
+          </Grid>
 
           <Grid item lg={3} sm={3} sx={{ mt: '1.5%', backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}} >
             <JobsLeftSide />
@@ -80,6 +85,7 @@ const Jobs = () => {
               {jobs && jobs.map((job)=>(
                 <PostedJob job={job}/>
               ))}
+              
             </Box>
           </Grid>
 

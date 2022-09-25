@@ -32,28 +32,31 @@ const SignIn = () => {
 
   const newUser = (user) => {
     axios.post("https://localhost:44369/api/Auth/signin", user)
-      .then(function (response) {
-        console.log(response.data.user)
-        localStorage.setItem("token",response.data.token)
-        setCurrentUser(response.data.user)
-        
-        currentUser.role === "Employee" ? (
+    .then(function (response) {
+      console.log(response.data.token)
+      localStorage.setItem("token",response.data.token)
+      
+      const loginUser = response.data.user.userId;
+      
+      response.data.user.role === "Employee" ? (
           Router.push({
             pathname: "/employee",
-            query: currentUser
+            query: {loginUser}
           })
         ) : (
           Router.push({
             pathname: "/employer",
-            query: currentUser
+            query: {loginUser}
           })
         )
-
-
+        
+        
+        
       })  
       .catch(function (error) {
         console.log(error);
       });
+
   };
 
   

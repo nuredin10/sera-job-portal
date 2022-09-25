@@ -18,6 +18,7 @@ namespace Sera_job_portal_api.Models
         public string CompanyName { get; set; }
         public DateTime PostedDate { get; set; }
         public string Location { get; set; }
-        //public int EmployerId { get; set; }
+        public long UserId { get; set; }
+        public virtual User User { get; set; }
     }
 }

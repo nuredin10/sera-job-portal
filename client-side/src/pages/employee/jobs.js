@@ -37,7 +37,7 @@ const Jobs = () => {
       .catch(function(res){
         console.log(res)
       })
-  })
+  },[])
 
   return (
     <>
@@ -80,7 +80,7 @@ const Jobs = () => {
             >
               <SearchBar setSearchValue={setSearchValue}/>
               <Typography variant="h1" color="black">{searchValue}</Typography>
-              {jobs && jobs.map((job)=>(
+              {jobs.map((job)=>(
                 <PostedJob job={job}/>
               ))}
             </Box>
