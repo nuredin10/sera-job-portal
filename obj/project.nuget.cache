@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "1V91IMW0w8R3itzXe4w/7bKVCGJ80lhA4w9fUQHMA4LYzhGGaUrI1sinsWOeVRpy0FXf5zX7BE12JgAhk1hLew==",
+=======
+  "dgSpecHash": "7nNb2IeayoiKF2xEZh0SunLeFU5hrnNjHPa/TNyKyCM/GDQykYMM2jolgFdtlnWARVOmh5RKjXGWbAA6XemvkQ==",
+>>>>>>> naod-branch
   "success": true,
   "projectFilePath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
   "expectedPackageFiles": [

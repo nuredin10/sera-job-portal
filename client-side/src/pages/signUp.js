@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Dropdown from "react-dropdown";
 import Image from "next/image";
 import {
   FormControl,
@@ -25,6 +26,25 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const SignUp = () => {
+  const { register, handleSubmit } = useForm();
+
+  const newUser = (user) => {
+    axios
+      .post("https://localhost:44369/api/Auth/signup", user)
+      .then(function (response) {
+        checkUser;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const [sex, setSex] = useState('');
+
+  const handleChange = (event) => {
+    setSex(event.target.value);
+  };
+
   return (
     <>
       <Head>
@@ -47,13 +67,177 @@ const SignUp = () => {
           backgroundColor: "background.default",
         }}
       >
-        <Box sx={{border: '1px solid red', width: '60%', height: '100vh'}}>
-
-        </Box>
+        <Grid container spacing={4}>
+          <Grid item lg={6} md={6} sm={12} >
+            <Image src="/signup-svg.svg" width="500" height="500"></Image>
+          </Grid>
+          <Grid
+            item
+            lg={4}
+            md={6}
+            sm={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              mb: 10,
+              ml: 15,
+            }}
+          >
+            <form onSubmit={handleSubmit(newUser)}>
+              <Grid container spacing={4}>
+                <Grid item lg={12} md={12} sm={12}>
+                  <Typography variant="h4" color="black">
+                    Welcome Back to Sera Job Portal
+                  </Typography>
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="firstName"
+                    label="First-name"
+                    type="text"
+                    fullWidth
+                    {...register("firstName")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="middleName"
+                    label="Middle-name"
+                    type="text"
+                    fullWidth
+                    {...register("middleName")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="lastName"
+                    label="Last-name"
+                    type="text"
+                    fullWidth
+                    {...register("lastName")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Email"
+                    label="Email"
+                    type="text"
+                    fullWidth
+                    {...register("Email")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Age"
+                    label="Age"
+                    type="text"
+                    fullWidth
+                    {...register("Age")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                <InputLabel id="demo-simple-select-label">Sex</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={sex}
+                    label="Sex"
+                    onChange={handleChange}
+                    fullWidth
+                  >
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
+                    <MenuItem value="Other">Other</MenuItem>
+                  </Select>
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Password"
+                    label="Password"
+                    type="password"
+                    fullWidth
+                    {...register("Password")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Address"
+                    label="Address"
+                    type="text"
+                    fullWidth
+                    {...register("Address")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Phone_Number"
+                    label="Phone number"
+                    type="number"
+                    fullWidth
+                    {...register("Phone_Number")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Educational_level"
+                    label="Educational Level"
+                    type="text"
+                    fullWidth
+                    {...register("Educational_level")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Bio"
+                    label="bio"
+                    type="text"
+                    fullWidth
+                    {...register("Bio")}
+                  />
+                </Grid>
+                <Grid item sx={{ width: "80%" }}>
+                  <Button
+                    type="submit"
+                    // size="large"
+                    sx={{
+                      marginRight: "2rem",
+                      // width: "50%",
+                    }}
+                    variant="contained"
+                  >
+                    Create Account
+                  </Button>
+                  <Button sx={{ width: "40%" }} variant="outlined" >
+                    Cancel
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+          </Grid>
+        </Grid>
       </Box>
     </>
   );
 };
-
-
-export default SignUp
+export default SignUp;
