@@ -70,6 +70,8 @@ namespace Sera_job_portal_api.Controllers
                         signingCredentials: signIn);
 
                     var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+
                     var response = new
                     {
                         token = jwtToken,
