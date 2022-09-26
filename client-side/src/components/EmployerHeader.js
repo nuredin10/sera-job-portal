@@ -22,6 +22,7 @@ const EmployerNavItems = [
 ];
 
 export const EmployerHeader = ({ loginUser }) => {
+  
   const linkOnClickHandler = (e) => {
     Router.push({
       pathname: e.href,
@@ -57,6 +58,7 @@ export const EmployerHeader = ({ loginUser }) => {
             alignItems: "center",
           }}
         >
+          
           <Grid item sm={12} md={4} lg={4}>
             <Box>
               <Typography variant="h5" color="primary.main">

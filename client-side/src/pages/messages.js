@@ -1,37 +1,37 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Grid, Typography, Button } from "@mui/material";
-import Head from 'next/head'
+import Head from "next/head";
 import ChatSideBar from "../components/ChatSideBar";
-import ChatArea from '../components/ChatArea'
+import ChatArea from "../components/ChatArea";
 import * as signalR from "@microsoft/signalr";
-import {useRouter } from 'next/router'
+import { useRouter } from "next/router";
+import { EmployerHeader } from "../components/EmployerHeader";
 
 const Messages = () => {
-
-  const connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44369/message")
-  .build();
+  const connection = new signalR.HubConnectionBuilder()
+    .withUrl("https://localhost:44369/message")
+    .build();
 
   connection.start();
   const [message, setMessage] = useState();
 
-  const Message=(props)=>{
-    useEffect(()=>{
-      props.connection.on("SendToReact",message=>{
+  const Message = (props) => {
+    useEffect(() => {
+      props.connection.on("SendToReact", (message) => {
         setMessage(message);
-      })
-    },[])
-    
-  }
+      });
+    }, []);
+  };
 
-  const router = useRouter()
+  const router = useRouter();
   const {
-    query: {loginUser}
-  }  = router
+    query: { loginUser },
+  } = router;
 
   const props = {
-    loginUser
-  }
-  console.log(props.loginUser)
+    loginUser,
+  };
+  console.log(props.loginUser);
   return (
     <>
       <Head>
@@ -49,18 +49,22 @@ const Messages = () => {
         component="main"
         sx={{
           width: "100%",
-          height: "100vh",
+          height: "auto",
           backgroundColor: "background.paper",
-          p: 3
         }}
       >
         <Message connection={connection}></Message>
-        <Grid container spacing={4}>
-          <Grid item lg={4} md={12} sm={12}>
-                <ChatSideBar></ChatSideBar>
+        <Grid container>
+          <Grid item lg={12} md={12} sm={12}>
+            <EmployerHeader />
           </Grid>
-          <Grid item lg={8} md={12} sm={12}>
-            <ChatArea message={message}></ChatArea>
+          <Grid container spacing={4} sx={{p:3}}>
+            <Grid item lg={4} md={12} sm={12}>
+              <ChatSideBar></ChatSideBar>
+            </Grid>
+            <Grid item lg={8} md={12} sm={12}>
+              <ChatArea message={message}></ChatArea>
+            </Grid>
           </Grid>
         </Grid>
       </Box>

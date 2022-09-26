@@ -125,9 +125,9 @@ const ChatArea = (props) => {
   //   setChosenEmoji(emojiObject);
   // };
 
-  // const emojiOnClickHandler=()=>{
-  //   setEmojiSelector(emoji=>!emoji);
-  // }
+  const emojiOnClickHandler=()=>{
+    // setEmojiSelector(emoji=>!emoji);
+  }
   // const messageOnChangeHandler =(e)=>{
   //   setValue(e.target.value);
   //   // console.log(value)
@@ -237,7 +237,7 @@ const ChatArea = (props) => {
                     {/* {emojiSelector? <Picker onEmojiClick={onEmojiClick} /> : null} */}
                     <IconButton>
                       <MoodIcon
-                        /* onClick={emojiOnClickHandler} */ color="primary"
+                        onClick={emojiOnClickHandler} color="primary"
                       />
                     </IconButton>
                     <IconButton>

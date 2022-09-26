@@ -12,12 +12,22 @@ import SearchBar from "../components/searchBar";
 import PostedJob from "../components/postedJob";
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import {useRouter} from 'next/router'
+
 const Jobs = () => {
 
   const [searchValue, setSearchValue] = useState();
 
   const [jobs, setJobs] = useState([]);
 
+  const router = useRouter()
+  const {
+    query: {loginUser}
+  }  = router
+
+  const props = {
+    loginUser
+  }
 
   useEffect(()=>{
 
@@ -38,7 +48,6 @@ const Jobs = () => {
       })
   },[])
   
-  console.log(jobs)
 
   return (
     <>
@@ -83,7 +92,7 @@ const Jobs = () => {
               <SearchBar setSearchValue={setSearchValue}/>
               <Typography variant="h1" color="black">{searchValue}</Typography>
               {jobs && jobs.map((job)=>(
-                <PostedJob job={job}/>
+                <PostedJob job={job} key={job.jobId} loginUser={props.loginUser}/>
               ))}
               
             </Box>

@@ -20,7 +20,7 @@ import {
   Grid,
   DatePicker,
 } from "@mui/material";
-
+import EmployerHeader from "../components/EmployerHeader";
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
@@ -97,6 +97,9 @@ const PostJob = () => {
         }}
       >
         <Grid container spacing={3} sx={{ backgroundColor: "primary.paper" }}>
+        <Grid item lg={12} md={12} sm={12}>
+            <EmployerHeader/>
+          </Grid>
           <Grid>
             <Grid
               item
