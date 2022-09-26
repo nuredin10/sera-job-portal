@@ -24,10 +24,12 @@ const EmployerNavItems = [
 export const EmployerHeader = ({ loginUser }) => {
   
   const linkOnClickHandler = (e) => {
+
     Router.push({
       pathname: e.href,
       query: { loginUser },
     });
+
   };
 
   return (
@@ -77,11 +79,6 @@ export const EmployerHeader = ({ loginUser }) => {
               <Grid item key={i}>
                 <Box
                   onClick={() => linkOnClickHandler(e)}
-                  // href={{
-                  //   pathname: "Messages",
-                  //   query: loginUser
-                  // }}
-                  // as={`loginUser/${loginUser}`}
                   sx={{
                     fontFamily: "inter",
                     textDecoration: "none",

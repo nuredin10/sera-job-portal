@@ -20,20 +20,25 @@ import {
   Grid,
   DatePicker,
 } from "@mui/material";
-
 import { useForm } from "react-hook-form";
 import axios from "axios";
+
 import Router from "next/router";
 
 
 const SignIn = () => {
+
+
+
   const { register, handleSubmit } = useForm();
+  
   const [currentUser, setCurrentUser] = useState();
 
   const newUser = (user) => {
     axios.post("https://localhost:44369/api/Auth/signin", user)
     .then(function (response) {
-      console.log(response.data.token)
+      console.log(response)
+      
       localStorage.setItem("token",response.data.token)
       
       const loginUser = response.data.user.userId;
@@ -49,9 +54,6 @@ const SignIn = () => {
             query: {loginUser}
           })
         )
-        
-        
-        
       })  
       .catch(function (error) {
         console.log(error);

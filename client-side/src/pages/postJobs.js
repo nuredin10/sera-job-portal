@@ -20,11 +20,6 @@ import {
   Grid,
   DatePicker,
 } from "@mui/material";
-import EmployerHeader from "../components/EmployerHeader";
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-// import { useForm } from "react-hook-form";
 import Router from "next/router";
 import Link from "@mui/material/Link";
 import axios from "axios";
@@ -45,6 +40,7 @@ const PostJob = () => {
   
   const { register, handleSubmit } = useForm();
   const [jobType, setJobType] = useState('')
+  
   const handleChangeJobType=(e)=>{
     setJobType(e.target.value)
   }

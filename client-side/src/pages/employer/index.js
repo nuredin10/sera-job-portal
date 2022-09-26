@@ -5,6 +5,7 @@ import { EmployerHeader } from "../../components/EmployerHeader";
 import {useRouter} from 'next/router'
 
 const Employer = () => {
+
   const router = useRouter()
   const {
     query: {loginUser}
@@ -14,7 +15,7 @@ const Employer = () => {
     loginUser
   }
 
-
+  
 
     const styles = {
         paperContainer: {
