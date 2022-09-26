@@ -84,7 +84,7 @@ const SignIn = () => {
       >
         <Grid container spacing={4}>
           <Grid item lg={6} md={6} sm={12}>
-            <Image src="/welcome.svg" width="500" height="500"></Image>
+            <Image src="/login-svg.svg" width="500" height="500"></Image>
           </Grid>
           <Grid
             item
