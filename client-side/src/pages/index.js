@@ -37,6 +37,10 @@ export default function Home({}) {
             <Grid item>
               <Typography variant="h1" color="black">Home page here</Typography>
             </Grid>
+
+            <Grid item>
+
+            </Grid>
           </Grid>
       </Box>
     </>
