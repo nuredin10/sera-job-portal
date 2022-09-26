@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Dropdown from 'react-dropdown';
+import Dropdown from "react-dropdown";
 import Image from "next/image";
 import {
   FormControl,
@@ -32,15 +32,19 @@ const SignUp = () => {
     axios
       .post("https://localhost:44369/api/Auth/signup", user)
       .then(function (response) {
-        checkUser
+        checkUser;
       })
       .catch(function (error) {
         console.log(error);
       });
+  };
 
-      const options = [
-        'Male', 'Female', 'Other'
-      ];
+  const [sex, setSex] = useState('');
+
+  const handleChange = (event) => {
+    setSex(event.target.value);
+  };
+
   return (
     <>
       <Head>
@@ -64,8 +68,8 @@ const SignUp = () => {
         }}
       >
         <Grid container spacing={4}>
-          <Grid item lg={6} md={6} sm={12}>
-            <Image src="/welcome.svg" width="500" height="500"></Image>
+          <Grid item lg={6} md={6} sm={12} >
+            <Image src="/signup-svg.svg" width="500" height="500"></Image>
           </Grid>
           <Grid
             item
@@ -143,7 +147,19 @@ const SignUp = () => {
                   />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
-                    <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select Sex" />;
+                <InputLabel id="demo-simple-select-label">Sex</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={sex}
+                    label="Sex"
+                    onChange={handleChange}
+                    fullWidth
+                  >
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
+                    <MenuItem value="Other">Other</MenuItem>
+                  </Select>
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
                   <TextField
@@ -203,16 +219,16 @@ const SignUp = () => {
                 <Grid item sx={{ width: "80%" }}>
                   <Button
                     type="submit"
-                    size="large"
+                    // size="large"
                     sx={{
                       marginRight: "2rem",
-                      width: "40%",
+                      // width: "50%",
                     }}
                     variant="contained"
                   >
                     Create Account
                   </Button>
-                  <Button sx={{ width: "40%" }} variant="outlined" size="large">
+                  <Button sx={{ width: "40%" }} variant="outlined" >
                     Cancel
                   </Button>
                 </Grid>
@@ -223,8 +239,5 @@ const SignUp = () => {
       </Box>
     </>
   );
-}
 };
-
-
 export default SignUp;

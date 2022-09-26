@@ -5552,19 +5552,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO LEGION\\.nuget\\packages\\": {}
+    "C:\\Users\\Nuredin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO LEGION\\Documents\\Code\\job-portal\\Sera-job-portal-api.csproj",
+      "projectUniqueName": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
       "projectName": "Sera-job-portal-api",
-      "projectPath": "C:\\Users\\LENOVO LEGION\\Documents\\Code\\job-portal\\Sera-job-portal-api.csproj",
-      "packagesPath": "C:\\Users\\LENOVO LEGION\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO LEGION\\Documents\\Code\\job-portal\\obj\\",
+      "projectPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\Sera-job-portal-api.csproj",
+      "packagesPath": "C:\\Users\\Nuredin\\.nuget\\packages\\",
+      "outputPath": "D:\\Sera Job Portal\\Sera-job-portal-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LENOVO LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nuredin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5627,7 +5627,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
       }
     }
   }
