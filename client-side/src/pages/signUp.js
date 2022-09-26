@@ -45,7 +45,6 @@ const SignUp = () => {
     setSex(event.target.value);
   };
 
-  const sexOnChangeHandler = () => {};
   return (
     <>
       <Head>
@@ -69,8 +68,8 @@ const SignUp = () => {
         }}
       >
         <Grid container spacing={4}>
-          <Grid item lg={6} md={6} sm={12}>
-            <Image src="/welcome.svg" width="500" height="500"></Image>
+          <Grid item lg={6} md={6} sm={12} >
+            <Image src="/signup-svg.svg" width="500" height="500"></Image>
           </Grid>
           <Grid
             item
@@ -157,9 +156,9 @@ const SignUp = () => {
                     onChange={handleChange}
                     fullWidth
                   >
-                    <MenuItem value={10}>Male</MenuItem>
-                    <MenuItem value={20}>Female</MenuItem>
-                    <MenuItem value={30}>Other</MenuItem>
+                    <MenuItem value="Male">Male</MenuItem>
+                    <MenuItem value="Female">Female</MenuItem>
+                    <MenuItem value="Other">Other</MenuItem>
                   </Select>
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
