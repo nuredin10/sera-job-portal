@@ -15,86 +15,10 @@ import SendIcon from "@mui/icons-material/Send";
 import { useState, useEffect,useRef} from "react";
 import MoodIcon from "@mui/icons-material/Mood";
 import { useForm } from "react-hook-form";
-import axios from './axios'
+import axios from 'axios'
 
 const ChatArea = (props) => {
-  const chats = [
-    {
-      message: "this is to let you know that Im here for you",
-      status: "outgoing",
-      time: "19:40",
-    },
-    {
-      message: "I kknow we got this",
-      status: "incoming",
-      time: "19:40",
-    },
-    {
-      message:
-        "this is to let you know that Im here for you this is to let this is to let ",
-      status: "outgoing",
-      time: "19:40",
-    },
-    {
-      message: "what time",
-      status: "incoming",
-      time: "19:40",
-    },
-    {
-      message: "afternoon",
-      status: "outgoing",
-      time: "19:40",
-    },
-
-    {
-      message: "I kknow we got this",
-      status: "incoming",
-      time: "19:40",
-    },
-    {
-      message:
-        "this is to let you know that Im here for you this is to let this is to let ",
-      status: "outgoing",
-      time: "19:40",
-    },
-    {
-      message: "what time",
-      status: "incoming",
-      time: "19:40",
-    },
-    {
-      message: "afternoon",
-      status: "outgoing",
-      time: "19:40",
-    },
-    {
-      message: "this is to let you know that Im here for you",
-      status: "outgoing",
-      time: "19:40",
-    },
-    {
-      message: "I kknow we got this",
-      status: "incoming",
-      time: "19:40",
-    },
-    {
-      message:
-        "this is to let you know that Im here for you this is to let this is to let ",
-      status: "outgoing",
-      time: "19:40",
-    },
-    {
-      message: "what time",
-      status: "incoming",
-      time: "19:40",
-    },
-    {
-      message: "afternoon",
-      status: "outgoing",
-      time: "19:40",
-    },
-  ];
-
+  
   const chatStyle = {
     mb: 1,
     // border: '1px solid red',
@@ -139,7 +63,7 @@ const ChatArea = (props) => {
   //     sendHandler();
   //   }
   // };
-
+  
   const sendHandler = (text) => {
     // var currentdate = new Date();
     var datetime = new Date().toJSON(); /* = currentdate.getFullYear()+ "-"
@@ -152,20 +76,19 @@ const ChatArea = (props) => {
     const message = {
       ...text,
       Time: datetime,
-      UserId: 1,
+      UserId: props.loginUser,
+      ToUserId: props.postUser
     };
 
     reset();
 
-    
-    axios.post("/api/message", message)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (response) {
-        console.log(response);
-      });
-  };
+    // console.log(message)
+    props.connection.invoke("SendMessage",text.messageText, message.Time,message.UserId,message.ToUserId )
+    .catch(function(res){
+      console.log(res)
+    })
+};
+
 
   const myRef= useRef(null);
   const scrollToMyRef = () => {
@@ -176,7 +99,12 @@ const ChatArea = (props) => {
 
   useEffect(() => {
     scrollToMyRef();
-  }, [props.message]);
+  }, [props.messages]);
+  
+  console.log(props.loginUser)
+  const [status, setStatus] = useState('');
+
+
   return (
     <Box
       sx={{
@@ -201,15 +129,21 @@ const ChatArea = (props) => {
       </Box>
       <Divider sx={{ borderColor: "#C4C4C4", my: 2 }} />
       <Box sx={chatStyle} ref={myRef}>
-        {props.message &&
-          props.message.map((e, i) => (
+        {props.messages &&
+          props.messages.map((e, i) => {
+
+            ()=>e.UserId == props.loginUser ? console.log('outgoing',) : console.log("incoming")
+
+            return(
             <Chat
               key={i}
               message={e.messageText}
-              status={e.status}
-              time={e.Time}
+              time={e.time}
+              status={status}
             ></Chat>
-          ))}
+            )
+          }
+          )}
       </Box>
       <Box>
         <form onSubmit={handleSubmit(sendHandler)}>

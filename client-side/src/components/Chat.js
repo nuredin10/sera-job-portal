@@ -1,6 +1,10 @@
 import { Box, Grid, Typography, Button, Divider, Avatar } from "@mui/material";
+import { useState,useEffect } from "react";
 
-const Chat = ({ message, status, time }) => {
+const Chat = ({ message, loginUser, UserId, time }) => {
+  
+  // useEffect(()=>{
+  // },[])
   const chatStyle = {
     backgroundColor: status == "outgoing" ? "#42032C" : "#C4C4C4",
     // maxWidth: "50%",
@@ -16,6 +20,7 @@ const Chat = ({ message, status, time }) => {
     color: status == "outgoing" ? "white" : "black",
     
   };
+
   return (
     <Box sx={chatStyle}>
       <Typography variant="body1">

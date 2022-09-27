@@ -24,7 +24,7 @@ namespace Sera_job_portal_api.Controllers
         {
             _context.Users.Add(user);
             _context.SaveChanges();
-            return Ok() ;
+            return Ok(user) ;
         }
 
         [Authorize]
@@ -37,7 +37,6 @@ namespace Sera_job_portal_api.Controllers
             return Ok(_context.Users.Where(e => e.UserId == Int32.Parse(selectedData)));
         }
 
-        [Authorize]
         [HttpGet("getAllUser")]
         public IActionResult GetALlUser()
         {

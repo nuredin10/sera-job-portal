@@ -6,32 +6,48 @@ import ChatArea from "../components/ChatArea";
 import * as signalR from "@microsoft/signalr";
 import { useRouter } from "next/router";
 import { EmployerHeader } from "../components/EmployerHeader";
+import axios from 'axios'
 
 const Messages = () => {
-  const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:44369/message")
-    .build();
-
-  connection.start();
-  const [message, setMessage] = useState();
-
-  const Message = (props) => {
-    useEffect(() => {
-      props.connection.on("SendToReact", (message) => {
-        setMessage(message);
-      });
-    }, []);
-  };
 
   const router = useRouter();
   const {
-    query: { loginUser },
+    query: { postUser,loginUser },
   } = router;
 
   const props = {
+    postUser,
     loginUser,
   };
-  console.log(props.loginUser);
+
+
+  const connection = new signalR.HubConnectionBuilder()
+    .withUrl("https://localhost:44369/ChatHub")
+    .build();
+
+    connection.start();
+    
+    const [messages, setMessages] = useState();
+    connection.on("RecieveMessage", function(response){
+      setMessages(response);
+      console.log(response)
+    });
+
+
+    useEffect(()=>{
+
+      axios.get("https://localhost:44369/GetAllChats")
+      .then(function(res){
+        setMessages(res.data)
+      })
+      .catch(function(res){
+        console.log(res)
+      })
+
+    },[])
+  
+  
+
   return (
     <>
       <Head>
@@ -53,7 +69,6 @@ const Messages = () => {
           backgroundColor: "background.paper",
         }}
       >
-        <Message connection={connection}></Message>
         <Grid container>
           <Grid item lg={12} md={12} sm={12}>
             <EmployerHeader />
@@ -62,8 +77,8 @@ const Messages = () => {
             <Grid item lg={4} md={12} sm={12}>
               <ChatSideBar></ChatSideBar>
             </Grid>
-            <Grid item lg={8} md={12} sm={12}>
-              <ChatArea message={message}></ChatArea>
+            <Grid item lg={8} md={12} sm={12}>              
+              <ChatArea messages={messages} connection={connection} loginUser={props.loginUser} postUser={postUser}></ChatArea>
             </Grid>
           </Grid>
         </Grid>

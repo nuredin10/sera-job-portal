@@ -1,4 +1,5 @@
 import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
+import Router from 'next/router';
 
 const EmployeeNavItems = [
   {
@@ -6,16 +7,26 @@ const EmployeeNavItems = [
     display: "Home",
   },
   {
-    href: "/employee/jobs",
+    href: "/jobs",
     display: "Jobs",
   },
   {
-    href: "/employee/messages",
+    href: "/messages",
     display: "Messages",
   },
 ];
 
-export const EmployeeHeader = () => {
+export const EmployeeHeader = ({loginUser}) => {
+
+  const linkOnClickHandler = (e) => {
+
+    Router.push({
+      pathname: e.href,
+      query: { loginUser },
+    });
+
+  };
+
   return (
     <>
       <Box
@@ -52,16 +63,17 @@ export const EmployeeHeader = () => {
           >
             {EmployeeNavItems.map((e, i) => (
               <Grid item key={i}>
-                <Link
-                  href={e.href}
+                <Box
+                  onClick={() => linkOnClickHandler(e)}
                   sx={{
                     fontFamily: "inter",
                     textDecoration: "none",
                     color: "black",
+                    cursor: "pointer",
                   }}
                 >
                   {e.display}
-                </Link>
+                </Box>
               </Grid>
             ))}
           </Grid>

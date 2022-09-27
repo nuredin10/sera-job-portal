@@ -46,10 +46,12 @@ const PostJob = () => {
   }
   const newJob = (job) => {
 
+    var datetime = new Date().toJSON();
     const postedJob = {
       ...job,
       JobType: jobType,
-      userId: props.loginUser
+      userId: props.loginUser,
+      PostedDate: datetime
     }
 
     const config ={

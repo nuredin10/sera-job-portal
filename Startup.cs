@@ -31,7 +31,7 @@ namespace Sera_job_portal_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            services.AddCors(); 
             services.AddSignalR();
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
@@ -86,7 +86,7 @@ namespace Sera_job_portal_api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<MessageHub>("/message"); // <====== add this ======
+                endpoints.MapHub<ChatHub>("/ChatHub"); // <====== add this ======
             });
         }
     }

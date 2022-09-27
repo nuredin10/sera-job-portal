@@ -2,8 +2,17 @@ import Head from "next/head";
 import Image from "next/image";
 import {Box, Grid, Button, Typography} from '@mui/material'
 import { EmployeeHeader } from "../../components/EmployeeHeader";
+import {useRouter} from 'next/router'
+const Employee = () => {
 
-const Employer = () => {
+  const router = useRouter()
+  const {
+    query: {loginUser}
+  }  = router
+
+  const props = {
+    loginUser
+  }
 
     const styles = {
         paperContainer: {
@@ -63,7 +72,7 @@ const Employer = () => {
         <Grid container spacing={0}>
           <Grid item lg={12} sm={12} xl={12} xs={12}>
             {/* <EmployerHeader /> */}
-            <EmployeeHeader />
+            <EmployeeHeader loginUser={props.loginUser}/>
           </Grid>
           <Grid item sx={{width: '100%', height: '70vh'}}>
             <Box style={styles.paperContainer}>
@@ -98,4 +107,4 @@ const Employer = () => {
   );
 };
 
-export default Employer;
+export default Employee;

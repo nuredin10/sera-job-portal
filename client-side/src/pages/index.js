@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { EmployerHeader } from "../components/EmployerHeader";
 import { EmployeeHeader } from "../components/EmployeeHeader";
 import { Container } from "@mui/system";
-import { Box,Grid,Typography } from "@mui/material";
+import { Box,Grid,Typography,Button } from "@mui/material";
 import {useEffect} from 'react'
 
 export default function Home({}) {
@@ -31,15 +31,18 @@ export default function Home({}) {
         }}>
           <Grid container >
 
+            <Grid itm lg={12} sm={12} md={12}>
 
-            
+              <Button href="/signIn" variant="contained">Sign In</Button>
+            </Grid>
+                        
 
             <Grid item>
               <Typography variant="h1" color="black">Home page here</Typography>
             </Grid>
 
             <Grid item>
-
+            
             </Grid>
           </Grid>
       </Box>
