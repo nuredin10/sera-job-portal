@@ -64,9 +64,9 @@ const findEmployee = () => {
           >
 
 <Box sx={{mt: '3%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <Box sx={{p: '3%',ml: 'auto', width: '70%', borderRadius: '10px', border: '1px solid #C4C4C4', textAlign: "center"}}>
+                <Box sx={{p: '3%',ml: '3%', width: '70%', borderRadius: '10px', border: '1px solid #C4C4C4', textAlign: "center"}}>
                 <Typography variant="h4" color="#D36B00">Find Freelancer</Typography>
-                  <Typography  variant="p" color="#42032C"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</Typography>
+                  <Typography  variant="p" color="#42032C"> You can search for freelancers or agencies, and you have the option to search for those who have earned one of our Talent Badges.</Typography>
                 </Box>
             </Box>
 
