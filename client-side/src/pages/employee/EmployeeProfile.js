@@ -48,14 +48,15 @@ const EmployeeProfile  = () => {
       >
 
       <Grid container spacing={3}>
-        <Grid item lg={9} sm={8} sx={{}}>
+        <Grid item lg={9} sm={8}>
             <Box
               sx={{
                 borderRadius: "10px",
                 backgroundColor: "background.paper",
                 pr: "5%",
-                pt: "5%",
+                // pt: "5%",
                 mr: '3%',
+                mt: '-5%',
                 boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",
               }}
             >
@@ -94,8 +95,23 @@ const EmployeeProfile  = () => {
               </Typography>
 
 
-              <Grid>
-
+              <Grid container spacing={5} sx={{mt: 2}}>
+                <Grid item xs={2}>
+                      <Typography variant='h6' color='text.primary'>$50.00</Typography>
+                      <Typography variant='p' color='text.secondary'>Hourly rate</Typography>
+                 </Grid>
+                 <Grid item xs={2}>
+                      <Typography variant='h6' color='text.primary'>23</Typography>
+                      <Typography variant='p' color='text.secondary'>Jobs</Typography>
+                 </Grid>
+                 <Grid item xs={2}>
+                      <Typography variant='h6' color='text.primary'>4.5 /5.0</Typography>
+                      <Typography variant='p' color='text.secondary'>Rating</Typography>
+                 </Grid>
+                 <Grid item xs={2}>
+                      <Typography variant='h6' color='text.primary'>293</Typography>
+                      <Typography variant='p' color='text.secondary'>Hours worked</Typography>
+                 </Grid>
               </Grid>
                   
             </Grid>
@@ -139,10 +155,16 @@ const EmployeeProfile  = () => {
               /** */
 
               <Typography variant='h5' color='text.primary'>
-                Availability
+                Language
               </Typography>
-              <Typography variant='p' color='text.primary'>
-                More than 30/hr a week
+
+              <br/>
+              <Typography variant='p' color='text.primary' fontSize='20px'>
+                English: <Typography variant='subtitle' color='text.secondary'>Fluent</Typography>
+              </Typography>
+              <br/>
+              <Typography variant='p' color='text.primary' fontSize='20px'>
+                Amharic: <Typography variant='subtitle' color='text.secondary'>Fluent</Typography>
               </Typography>
 
               <Divider sx={{ borderColor: "#C4C4C4", mx: 3, my: 3 }}/>
