@@ -1,5 +1,6 @@
 import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
 import Head from 'next/head'
+import {Avatar} from "@mui/material";
 
 const EmployerNavItems = [
   {
@@ -19,6 +20,10 @@ const EmployerNavItems = [
     display: "Find Employer",
   },
 ];
+
+const profileOnClickHandler =()=>{
+  
+}
 
 export const EmployerHeader = () => {
   return (
@@ -55,7 +60,10 @@ export const EmployerHeader = () => {
             
           </Grid>
           <Grid item>
-            <Button href='postJobs' variant="contained">Post Job</Button>
+            <Button href='postJobs' variant="contained">Posdst Job</Button>
+          </Grid>
+          <Grid item>
+              <Avatar src='/log.png' onClick={profileOnClickHandler}></Avatar>
           </Grid>
         </Grid>
       </Box>

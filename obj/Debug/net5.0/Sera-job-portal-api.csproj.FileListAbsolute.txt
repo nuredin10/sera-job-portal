@@ -167,3 +167,13 @@ C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\ref\Sera-job-p
 =======
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 >>>>>>> main
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.csproj.AssemblyReference.cache
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.AssemblyInfoInputs.cache
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.AssemblyInfo.cs
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.dll
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\refint\Sera-job-portal-api.dll
+C:\Users\LENOVO LEGION\Documents\Code\job-portal\sera-job-portal\obj\Debug\net5.0\Sera-job-portal-api.pdb
