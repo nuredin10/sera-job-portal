@@ -43,5 +43,12 @@ namespace Sera_job_portal_api.Controllers
             var data = _context.Users.ToList();
             return Ok(data);
         }
+
+        [HttpPost("findEmployee")]
+        public IActionResult FindEmployee(string name)
+        {
+            var data = _context.Users.Find(name);
+            return Ok(data);
+        }
     }
 }

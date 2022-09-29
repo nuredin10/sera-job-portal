@@ -22,11 +22,11 @@ const Jobs = () => {
 
   const router = useRouter()
   const {
-    query: {loginUser}
+    query: {loginUser,loginRole}
   }  = router
 
   const props = {
-    loginUser
+    loginUser,loginRole
   }
 
   useEffect(()=>{
@@ -67,7 +67,7 @@ const Jobs = () => {
         sx={{
           width: "100%",
           height: "auto",
-          backgroundColor: "background.default",
+          backgroundColor: "background.paper",
         }}
       >
         <Grid container spacing={3}>
@@ -75,30 +75,30 @@ const Jobs = () => {
             <EmployerHeader/>
           </Grid>
 
-          <Grid item lg={3} sm={3} sx={{ mt: '1.5%', backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}} >
+          <Grid item lg={3} sm={3} sx={{ mt: '1.5%', backgroundColor: 'background.default', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",}} >
             <JobsLeftSide />
           </Grid>
           <Grid item lg={6} sm={8} sx={{}}>
             <Box
               sx={{
                 borderRadius: "10px",
-                backgroundColor: "background.paper",
+                backgroundColor: "background.default",
                 pr: "5%",
                 pt: "5%",
                 mr: '3%',
-                boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",
+                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
               }}
             >
               <SearchBar setSearchValue={setSearchValue}/>
               <Typography variant="h1" color="black">{searchValue}</Typography>
               {jobs && jobs.map((job)=>(
-                <PostedJob job={job} key={job.jobId} loginUser={props.loginUser}/>
+                <PostedJob job={job} key={job.jobId} loginUser={props.loginUser} loginRole={props.loginRole}/>
               ))}
               
             </Box>
           </Grid>
 
-          <Grid item lg={3} sm={3} sx={{ mt: '1.5%', ml: '0' ,backgroundColor: 'background.paper', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",}}>
+          <Grid item lg={3} sm={3} sx={{ mt: '1.5%', ml: '0' ,backgroundColor: 'background.default', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",}}>
             <Box>
               <JobsRightSide />
             </Box>

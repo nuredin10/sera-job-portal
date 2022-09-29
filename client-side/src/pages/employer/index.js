@@ -8,11 +8,11 @@ const Employer = () => {
 
   const router = useRouter()
   const {
-    query: {loginUser}
+    query: {loginUser,loginRole}
   }  = router
 
   const props = {
-    loginUser
+    loginUser,loginRole
   }
 
   
@@ -72,7 +72,7 @@ const Employer = () => {
       >
         <Grid container spacing={0}>
           <Grid item lg={12} md={12} sm={12}>
-            <EmployerHeader loginUser={props.loginUser}/>
+            <EmployerHeader loginUser={props.loginUser} loginRole={props.loginRole}/>
           </Grid>
           <Grid item sx={{width: '100%', height: '70vh'}}>
             <Box style={styles.paperContainer}>

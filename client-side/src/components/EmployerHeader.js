@@ -21,13 +21,13 @@ const EmployerNavItems = [
   },
 ];
 
-export const EmployerHeader = ({ loginUser }) => {
+export const EmployerHeader = ({ loginUser,loginRole }) => {
   
   const linkOnClickHandler = (e) => {
 
     Router.push({
       pathname: e.href,
-      query: { loginUser },
+      query: { loginUser,loginRole },
     });
 
   };

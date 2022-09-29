@@ -16,13 +16,13 @@ const EmployeeNavItems = [
   },
 ];
 
-export const EmployeeHeader = ({loginUser}) => {
+export const EmployeeHeader = ({loginUser,loginRole}) => {
 
   const linkOnClickHandler = (e) => {
 
     Router.push({
       pathname: e.href,
-      query: { loginUser },
+      query: { loginUser,loginRole },
     });
 
   };

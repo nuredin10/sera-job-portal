@@ -42,16 +42,18 @@ const SignIn = () => {
       localStorage.setItem("token",response.data.token)
       
       const loginUser = response.data.user.userId;
+      const loginRole = response.data.user.role;
+
       
       response.data.user.role === "Employee" ? (
           Router.push({
             pathname: "/employee",
-            query: {loginUser}
+            query: {loginUser,loginRole}
           })
         ) : (
           Router.push({
             pathname: "/employer",
-            query: {loginUser}
+            query: {loginUser,loginRole}
           })
         )
       })  
