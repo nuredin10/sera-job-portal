@@ -3,8 +3,11 @@ import { useState,useEffect } from "react";
 
 const Chat = ({ message, loginUser, UserId, time }) => {
   
-  // useEffect(()=>{
-  // },[])
+  const [status, setStatus] = useState('');
+
+  useEffect(()=>{
+    loginUser == UserId ? setStatus('outgoing') : setStatus('incoming')
+  },[])
   const chatStyle = {
     backgroundColor: status == "outgoing" ? "#42032C" : "#C4C4C4",
     // maxWidth: "50%",

@@ -24,7 +24,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import Router from "next/router";
-
+import cookie from 'js-cookie';
 
 const SignIn = () => {
 
@@ -39,7 +39,9 @@ const SignIn = () => {
     .then(function (response) {
       console.log(response)
       
-      localStorage.setItem("token",response.data.token)
+      cookie.set('token', response.data.token)
+      cookie.set('user', response.data.user)
+      // localStorage.setItem("token",response.data.token)
       
       const loginUser = response.data.user.userId;
       const loginRole = response.data.user.role;
@@ -142,7 +144,7 @@ const SignIn = () => {
                     }}
                     variant="contained"
                   >
-                    Post
+                    Login
                   </Button>
                   <Button sx={{ width: "40%" }} variant="outlined" size="large">
                     Cancel

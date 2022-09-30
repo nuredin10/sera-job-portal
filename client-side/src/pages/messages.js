@@ -6,18 +6,24 @@ import ChatArea from "../components/ChatArea";
 import * as signalR from "@microsoft/signalr";
 import { useRouter } from "next/router";
 import { EmployerHeader } from "../components/EmployerHeader";
+import { EmployeeHeader } from "../components/EmployeeHeader";
 import axios from 'axios'
+import cookie from 'js-cookie'
 
 const Messages = () => {
 
+  const [usersToChat, setUsersToChat] = useState([])
+  const [selectedUser, setSelectedUser] = useState('');
+
   const router = useRouter();
   const {
-    query: { postUser,loginUser },
+    query: { postUser,loginUser,loginRole },
   } = router;
 
   const props = {
     postUser,
     loginUser,
+    loginRole
   };
 
 
@@ -35,8 +41,13 @@ const Messages = () => {
 
 
     useEffect(()=>{
+      const config ={
+        headers: {
+          Authorization: "Bearer " + cookie.get("token"),
+        }
+      }
 
-      axios.get("https://localhost:44369/GetAllChats")
+      axios.get("https://localhost:44369/GetAllChats",config)
       .then(function(res){
         setMessages(res.data)
       })
@@ -44,13 +55,44 @@ const Messages = () => {
         console.log(res)
       })
 
-
-      
-
+      axios.get("https://localhost:44369/usersToChat",config)
+        .then(function(res){
+          console.log(res)
+          setUsersToChat(res.data)
+        })
+        .catch(function(res){
+          console.log(res)
+        })
     },[])
   
-  
 
+    useEffect(()=>{
+
+      const config ={
+        headers: {
+          Authorization: "Bearer " + cookie.get("token"),
+        }
+      }
+
+      const selectUserToChat = {
+        toUserId : selectedUser.toString(),
+        userId : props.loginUser
+      }
+      // console.log(selectUserToChat)
+
+      axios.post("https://localhost:44369/GetAllChats",selectUserToChat,config)
+      .then(function(res){
+        console.log(res)
+        setMessages(res.data)
+      })
+      .catch(function(res){
+        console.log(res)
+      })
+      
+    },[selectedUser])
+
+
+  
   return (
     <>
       <Head>
@@ -73,15 +115,23 @@ const Messages = () => {
         }}
       >
         <Grid container>
-          <Grid item lg={12} md={12} sm={12}>
-            <EmployerHeader />
+        {
+            props.loginRole == "Employer" ? (
+              <Grid item lg={12} md={12} sm={12}>
+            <EmployerHeader/>
           </Grid>
+            ) : (
+              <Grid item lg={12} md={12} sm={12}>
+            <EmployeeHeader/>
+          </Grid>
+            )
+          }
           <Grid container spacing={4} sx={{p:3}}>
             <Grid item lg={4} md={12} sm={12}>
-              <ChatSideBar></ChatSideBar>
+              <ChatSideBar usersToChat={usersToChat} setSelectedUser={setSelectedUser}></ChatSideBar>
             </Grid>
             <Grid item lg={8} md={12} sm={12}>              
-              <ChatArea messages={messages} connection={connection} loginUser={props.loginUser} postUser={postUser}></ChatArea>
+              <ChatArea messages={messages} connection={connection} loginUser={props.loginUser} postUser={postUser} selectedUser={selectedUser}></ChatArea>
             </Grid>
           </Grid>
         </Grid>

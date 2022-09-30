@@ -1,6 +1,7 @@
 import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
 import Head from "next/head";
 import Router from "next/router";
+import cookie from 'js-cookie'
 
 const EmployerNavItems = [
   {
@@ -31,6 +32,10 @@ export const EmployerHeader = ({ loginUser,loginRole }) => {
     });
 
   };
+
+  const logoutHandler =()=>{
+    cookie.set('token', '')
+  }
 
   return (
     <>
@@ -93,6 +98,7 @@ export const EmployerHeader = ({ loginUser,loginRole }) => {
           </Grid>
 
           <Grid item>
+            
             <Button
               onClick={function () {
                 Router.push({
@@ -104,6 +110,9 @@ export const EmployerHeader = ({ loginUser,loginRole }) => {
             >
               Post Job
             </Button>
+          </Grid>
+          <Grid item>
+            <Button onClick={logoutHandler} variant="contained">Log Out</Button>
           </Grid>
         </Grid>
       </Box>

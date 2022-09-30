@@ -77,12 +77,12 @@ const ChatArea = (props) => {
       ...text,
       Time: datetime,
       UserId: props.loginUser,
-      ToUserId: props.postUser
+      ToUserId: props.postUser == undefined ? props.selectedUser.toString() : props.postUser
     };
 
     reset();
 
-    // console.log(message)
+    console.log(message)
     props.connection.invoke("SendMessage",text.messageText, message.Time,message.UserId,message.ToUserId )
     .catch(function(res){
       console.log(res)
@@ -101,8 +101,6 @@ const ChatArea = (props) => {
     scrollToMyRef();
   }, [props.messages]);
   
-  console.log(props.loginUser)
-  const [status, setStatus] = useState('');
 
 
   return (
@@ -139,7 +137,8 @@ const ChatArea = (props) => {
               key={i}
               message={e.messageText}
               time={e.time}
-              status={status}
+              loginUser={props.loginUser}
+              UserId={e.userId}
             ></Chat>
             )
           }

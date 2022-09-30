@@ -1,5 +1,6 @@
 import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
 import Router from 'next/router';
+import cookie from 'js-cookie';
 
 const EmployeeNavItems = [
   {
@@ -26,6 +27,10 @@ export const EmployeeHeader = ({loginUser,loginRole}) => {
     });
 
   };
+
+  const logoutHandler =()=>{
+    cookie.set('token', '')
+  }
 
   return (
     <>
@@ -78,7 +83,7 @@ export const EmployeeHeader = ({loginUser,loginRole}) => {
             ))}
           </Grid>
           <Grid item>
-            <Button variant="contained">Log Out</Button>
+            <Button onClick={logoutHandler} variant="contained">Log Out</Button>
           </Grid>
         </Grid>
       </Box>

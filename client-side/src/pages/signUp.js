@@ -23,44 +23,48 @@ import {
 
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Router from 'next/router'
+import Router from "next/router";
+import cookie from 'js-cookie'
+
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
 
-  const [sex, setSex] = useState('');
+  const [sex, setSex] = useState("");
 
   const handleChange = (event) => {
     setSex(event.target.value);
   };
   const newUser = (user) => {
-
-    const registerUser ={
+    const registerUser = {
       ...user,
-      Sex: sex
-    }
-    console.log(user)
-    console.log(registerUser)
+      Sex: sex,
+    };
+    console.log(user);
+    console.log(registerUser);
 
-    axios.post("https://localhost:44369/api/User/addUser", registerUser)
+    axios
+      .post("https://localhost:44369/api/User/addUser", registerUser)
       .then(function (response) {
-        const loginUser = response.data.userId
-        response.data.role == "Employee" ? (
-          Router.push({
-            pathname: "/employee",
-            query: {loginUser}
-          })
-        ) : (
-          Router.push({
-            pathname: "/employer",
-            query: {loginUser}
-          })
-        )
+        cookie.set("token", response.data.token);
+        cookie.set("user", response.data.user);
+
+        const loginUser = response.data.userId;
+        const loginRole = response.data.user.role;
+
+        response.data.role == "Employee"
+          ? Router.push({
+              pathname: "/employee",
+              query: { loginUser,loginRole },
+            })
+          : Router.push({
+              pathname: "/employer",
+              query: { loginUser,loginRole },
+            });
       })
       .catch(function (error) {
         console.log(error);
       });
   };
-
 
   return (
     <>
@@ -85,7 +89,7 @@ const SignUp = () => {
         }}
       >
         <Grid container spacing={4}>
-          <Grid item lg={6} md={6} sm={12} >
+          <Grid item lg={6} md={6} sm={12}>
             <Image src="/signup-svg.svg" width="500" height="500"></Image>
           </Grid>
           <Grid
@@ -175,7 +179,7 @@ const SignUp = () => {
                   />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
-                <InputLabel id="demo-simple-select-label">Sex</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Sex</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -287,7 +291,7 @@ const SignUp = () => {
                   >
                     Create Account
                   </Button>
-                  <Button sx={{ width: "40%" }} variant="outlined" >
+                  <Button sx={{ width: "40%" }} variant="outlined">
                     Cancel
                   </Button>
                 </Grid>
