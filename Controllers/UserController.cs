@@ -44,11 +44,12 @@ namespace Sera_job_portal_api.Controllers
             return Ok(data);
         }
 
-        [HttpPost("findEmployee")]
-        public IActionResult FindEmployee(string name)
+        [Authorize]
+        [HttpPost("FindEmplyee")]
+        public IActionResult FindEmployee(string username)
         {
-            var data = _context.Users.Find(name);
-            return Ok(data);
+            var user = _context.Users.Where(e => e.Username == username);
+            return Ok(user);
         }
     }
 }
