@@ -37,10 +37,15 @@ const Messages = () => {
     const [messages, setMessages] = useState();
     connection.on("RecieveMessage", function(response){
       setMessages(response);
-      console.log(response)
     });
 
 
+    // connection.onclose((error) =>{
+    //   connection.start()
+    //   console.log(error)
+    // })
+    connection.serverTimeoutInMilliseconds = 300000;
+    connection.keepAliveIntervalInMilliseconds = 300000;
     useEffect(()=>{
       const config ={
         headers: {
@@ -51,6 +56,7 @@ const Messages = () => {
       axios.get("https://localhost:44369/GetAllChats",config)
       .then(function(res){
         setMessages(res.data)
+        console.log(res.data)
       })
       .catch(function(res){
         console.log(res)
@@ -58,7 +64,6 @@ const Messages = () => {
 
       axios.get("https://localhost:44369/usersToChat",config)
         .then(function(res){
-          console.log(res)
           setUsersToChat(res.data)
         })
         .catch(function(res){
@@ -83,7 +88,6 @@ const Messages = () => {
 
       axios.post("https://localhost:44369/GetAllChats",selectUserToChat,config)
       .then(function(res){
-        console.log(res)
         setMessages(res.data)
       })
       .catch(function(res){

@@ -27,8 +27,8 @@ namespace Sera_job_portal_api.Hubs
 
             await _context.Messages.AddAsync(MessageToSend);
             await _context.SaveChangesAsync();
-
-            var messages = _context.Messages.Where(e => e.UserId.ToString() == userId && e.ToUserId == toUserId || e.UserId.ToString() == toUserId && e.ToUserId.ToString() == userId.ToString());
+            
+            var messages = _context.Messages.Where(e => e.UserId.ToString() == userId && e.ToUserId == toUserId || e.UserId.ToString() == toUserId && e.ToUserId == userId.ToString());
             await Clients.All.SendAsync("RecieveMessage", messages);
         }
 

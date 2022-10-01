@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Divider from "@mui/material/Divider";
 import Head from "next/head";
@@ -22,8 +22,36 @@ import {
   DatePicker,
 } from "@mui/material";
 import { EmployerHeader } from "../components/EmployerHeader";
-
+import cookie from 'js-cookie'
+import axios from 'axios'
+import Router from 'next/router'
 const Profile = () => {
+  const loginUser = cookie.get("loginUser")
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(()=>{
+    const req = {
+      UserId: loginUser,
+    };
+
+    axios
+      .post("https://localhost:44369/api/User/FindUserById", req)
+      .then(function (res) {
+        setCurrentUser(res.data[0]);
+      })
+      .catch(function (res) {
+        console.log(res);
+      });
+    },[])
+    
+    const logoutHandler =()=>{
+      cookie.set("token",'')
+      cookie.set("loginUser",'')
+      cookie.set("loginRole",'')
+      Router.push('/')
+
+    }
+
   return (
     <>
       <Head>
@@ -42,7 +70,7 @@ const Profile = () => {
         component="main"
         sx={{
           width: "100%",
-          height: "auto",
+          height: "120vh",
           backgroundColor: "background.default",
           //   pt: '3%'
         }}
@@ -63,16 +91,19 @@ const Profile = () => {
                 boxShadow: "rgba(0, 0, 0, 0.10) 0px 5px 5px",
               }}
             >
+              {currentUser && (
+
               <Grid container sx={{ mt: "5%" }}>
                 <Grid
                   item
                   sx={{ width: "60%", borderRadius: "10px", m: "1%", p: "5%" }}
                 >
+                  
                   <Typography variant="h3" color="text.primary">
-                    John Doe
+                    {currentUser.firstName + ' '+ currentUser.middleName}
                   </Typography>
                   <Typography variant="caption" color="text.primary">
-                    <LocationOnIcon /> Addis Ababa
+                    <LocationOnIcon /> {currentUser.location}
                   </Typography>
 
                   <Grid container sx={{ mt: "5%" }}>
@@ -122,19 +153,10 @@ const Profile = () => {
 
                   <br />
                   <Typography variant="p" color="text.primary">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    {currentUser.bio}
                   </Typography>
 
-                  <Grid container spacing={5} sx={{ mt: 2 }}>
+                  <Grid container spacing={5} sx={{ mt: 2, border: '1px solid red',width: '100%' }}>
                     <Grid item xs={2}>
                       <Typography variant="h6" color="text.primary">
                         $50.00
@@ -170,6 +192,7 @@ const Profile = () => {
                   </Grid>
                 </Grid>
               </Grid>
+              )}
             </Box>
           </Grid>
 
@@ -225,6 +248,9 @@ const Profile = () => {
                 </Typography>
               </Typography>
               <Divider sx={{ borderColor: "#C4C4C4", mx: 3, my: 3 }} />
+              <Box>
+                <Button variant='contained' onClick={logoutHandler}>Logout</Button>
+              </Box>
             </Box>
           </Grid>
         </Grid>

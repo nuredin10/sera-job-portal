@@ -83,7 +83,6 @@ const ChatArea = (props) => {
 
     reset();
 
-    console.log(message);
     props.connection
       .invoke(
         "SendMessage",

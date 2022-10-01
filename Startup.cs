@@ -31,9 +31,10 @@ namespace Sera_job_portal_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(); 
-            services.AddSignalR();
-            services.AddControllers();
+            services.AddCors();
+            services.AddSignalR(e => {
+                e.MaximumReceiveMessageSize = 102400000;
+            }); services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString(
            "DefulatConnection")));
             services.AddSwaggerGen(c =>
