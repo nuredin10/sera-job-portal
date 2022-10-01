@@ -46,10 +46,10 @@ namespace Sera_job_portal_api.Controllers
 
         [Authorize]
         [HttpPost("FindEmplyee")]
-        public IActionResult FindEmployee(string username)
+        public IActionResult FindEmployee(User user)
         {
-            var user = _context.Users.Where(e => e.Username == username);
-            return Ok(user);
+            var employee = _context.Users.Where(e => e.FirstName == user.FirstName);
+            return Ok(employee);
         }
     }
 }
