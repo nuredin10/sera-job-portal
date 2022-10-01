@@ -1,4 +1,4 @@
-import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
+import { Button, Container, Box, Grid, Link, Typography,Avatar } from "@mui/material";
 import Head from "next/head";
 import Router from "next/router";
 import cookie from 'js-cookie'
@@ -17,7 +17,7 @@ const EmployerNavItems = [
     display: "Messages",
   },
   {
-    href: "/employer/findEmployer",
+    href: "/findEmployer",
     display: "Find Employer",
   },
 ];
@@ -112,7 +112,7 @@ export const EmployerHeader = ({ loginUser,loginRole }) => {
             </Button>
           </Grid>
           <Grid item>
-            <Button onClick={logoutHandler} variant="contained">Log Out</Button>
+            <Avatar src='/log.png' href='/profile' sx={{cursor: 'pointer', ml: 2}}></Avatar>   
           </Grid>
         </Grid>
       </Box>

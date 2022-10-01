@@ -1,4 +1,4 @@
-import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
+import { Button, Container, Box, Grid, Link, Typography,Avatar } from "@mui/material";
 import Router from 'next/router';
 import cookie from 'js-cookie';
 
@@ -83,7 +83,7 @@ export const EmployeeHeader = ({loginUser,loginRole}) => {
             ))}
           </Grid>
           <Grid item>
-            <Button onClick={logoutHandler} variant="contained">Log Out</Button>
+            <Avatar src='/log.png' href='/profile' sx={{cursor: 'pointer'}}></Avatar>   
           </Grid>
         </Grid>
       </Box>
