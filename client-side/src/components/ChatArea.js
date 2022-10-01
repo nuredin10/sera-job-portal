@@ -69,7 +69,7 @@ const ChatArea = (props) => {
     var datetime = new Date().toJSON(); /* = currentdate.getFullYear()+ "-"
                 + (currentdate.getMonth()+1)  + "-" 
                 + currentdate.getDate()   
-                + currentdate.getHours() + ":"  
+                + currentdate.getHours()    + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds(); */
 
