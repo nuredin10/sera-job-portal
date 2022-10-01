@@ -17,14 +17,15 @@ const Messages = () => {
 
   const router = useRouter();
   const {
-    query: { postUser,loginUser,loginRole },
+    query: { postUser},
   } = router;
 
   const props = {
     postUser,
-    loginUser,
-    loginRole
   };
+
+  const loginUser = cookie.get("loginUser")
+  const loginRole = cookie.get("loginRole")
 
 
   const connection = new signalR.HubConnectionBuilder()
@@ -36,10 +37,15 @@ const Messages = () => {
     const [messages, setMessages] = useState();
     connection.on("RecieveMessage", function(response){
       setMessages(response);
-      console.log(response)
     });
 
 
+    // connection.onclose((error) =>{
+    //   connection.start()
+    //   console.log(error)
+    // })
+    connection.serverTimeoutInMilliseconds = 300000;
+    connection.keepAliveIntervalInMilliseconds = 300000;
     useEffect(()=>{
       const config ={
         headers: {
@@ -50,6 +56,7 @@ const Messages = () => {
       axios.get("https://localhost:44369/GetAllChats",config)
       .then(function(res){
         setMessages(res.data)
+        console.log(res.data)
       })
       .catch(function(res){
         console.log(res)
@@ -57,7 +64,6 @@ const Messages = () => {
 
       axios.get("https://localhost:44369/usersToChat",config)
         .then(function(res){
-          console.log(res)
           setUsersToChat(res.data)
         })
         .catch(function(res){
@@ -76,22 +82,21 @@ const Messages = () => {
 
       const selectUserToChat = {
         toUserId : selectedUser.toString(),
-        userId : props.loginUser
+        userId : loginUser
       }
       // console.log(selectUserToChat)
 
       axios.post("https://localhost:44369/GetAllChats",selectUserToChat,config)
       .then(function(res){
-        console.log(res)
         setMessages(res.data)
       })
       .catch(function(res){
         console.log(res)
       })
+      props.postUser = selectedUser
       
     },[selectedUser])
-
-
+    const toUserId = selectedUser == '' ? props.postUser : selectedUser;
   
   return (
     <>
@@ -116,7 +121,7 @@ const Messages = () => {
       >
         <Grid container>
         {
-            props.loginRole == "Employer" ? (
+            loginRole == "Employer" ? (
               <Grid item lg={12} md={12} sm={12}>
             <EmployerHeader/>
           </Grid>
@@ -131,7 +136,7 @@ const Messages = () => {
               <ChatSideBar usersToChat={usersToChat} setSelectedUser={setSelectedUser}></ChatSideBar>
             </Grid>
             <Grid item lg={8} md={12} sm={12}>              
-              <ChatArea messages={messages} connection={connection} loginUser={props.loginUser} postUser={postUser} selectedUser={selectedUser}></ChatArea>
+              <ChatArea messages={messages} connection={connection} loginUser={loginUser} postUser={toUserId} ></ChatArea>
             </Grid>
           </Grid>
         </Grid>

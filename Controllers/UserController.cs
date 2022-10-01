@@ -51,5 +51,14 @@ namespace Sera_job_portal_api.Controllers
             var employee = _context.Users.Where(e => e.FirstName == user.FirstName);
             return Ok(employee);
         }
+
+        //[Authorize]
+        [HttpPost("FindUserById")]
+        public IActionResult FindUserById(User user)
+        {
+            var res = _context.Users.Where(e => e.UserId == user.UserId);
+            return Ok(res);
+        }
+
     }
 }

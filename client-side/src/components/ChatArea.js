@@ -12,13 +12,12 @@ import Chat from "./Chat";
 import { TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 // import Picker from "emoji-picker-react";
-import { useState, useEffect,useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import MoodIcon from "@mui/icons-material/Mood";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
+import axios from "axios";
 
 const ChatArea = (props) => {
-  
   const chatStyle = {
     mb: 1,
     // border: '1px solid red',
@@ -39,31 +38,9 @@ const ChatArea = (props) => {
     },
   };
 
-  // const [value, setValue] = useState("");
-  // const [message, setMessage] = useState("");
+  const [userToChat, setUserToChat] = useState();
   const { register, handleSubmit, reset } = useForm();
-  // const [chosenEmoji, setChosenEmoji] = useState(null);
-  // const [emojiSelector, setEmojiSelector] = useState(false);
 
-  // const onEmojiClick = (event, emojiObject) => {
-  //   setChosenEmoji(emojiObject);
-  // };
-
-  const emojiOnClickHandler=()=>{
-    // setEmojiSelector(emoji=>!emoji);
-  }
-  // const messageOnChangeHandler =(e)=>{
-  //   setValue(e.target.value);
-  //   // console.log(value)
-
-  // }
-
-  // const handleKeyDown = event => {
-  //   if (event.key === 'Enter') {
-  //     sendHandler();
-  //   }
-  // };
-  
   const sendHandler = (text) => {
     // var currentdate = new Date();
     var datetime = new Date().toJSON(); /* = currentdate.getFullYear()+ "-"
@@ -77,31 +54,51 @@ const ChatArea = (props) => {
       ...text,
       Time: datetime,
       UserId: props.loginUser,
-      ToUserId: props.postUser == undefined ? props.selectedUser.toString() : props.postUser
+      ToUserId: props.postUser.toString(),
     };
 
     reset();
 
-    console.log(message)
-    props.connection.invoke("SendMessage",text.messageText, message.Time,message.UserId,message.ToUserId )
-    .catch(function(res){
-      console.log(res)
-    })
-};
+    props.connection
+      .invoke(
+        "SendMessage",
+        text.messageText,
+        message.Time,
+        message.UserId,
+        message.ToUserId
+      )
+      .catch(function (res) {
+        console.log(res);
+      });
+  };
 
-
-  const myRef= useRef(null);
+  const myRef = useRef(null);
   const scrollToMyRef = () => {
-        if (myRef.current) {
-            myRef.current.scrollTop = myRef.current.scrollHeight
-        }
-    };
+    if (myRef.current) {
+      myRef.current.scrollTop = myRef.current.scrollHeight;
+    }
+  };
 
   useEffect(() => {
     scrollToMyRef();
   }, [props.messages]);
-  
 
+  useEffect(() => {
+    const req = {
+      UserId: props.postUser,
+    };
+
+    axios
+      .post("https://localhost:44369/api/User/FindUserById", req)
+      .then(function (res) {
+        setUserToChat(res.data[0]);
+      })
+      .catch(function (res) {
+        console.log(res);
+      });
+  }, [props.postUser]);
+
+  // console.log("to user", props.postUser)
 
   return (
     <Box
@@ -117,9 +114,12 @@ const ChatArea = (props) => {
       <Box sx={{ display: "flex" }}>
         <Avatar src="/logo.png"></Avatar>
         <Box sx={{ ml: 1, display: "flex", flexDirection: "column" }}>
-          <Typography variant="subtitle1" color="black">
-            Sandra Alex
-          </Typography>
+          {userToChat && (
+            <Typography variant="subtitle1" color="black">
+              {userToChat.firstName + " " + userToChat.middleName}
+            </Typography>
+          )}
+
           <Typography variant="caption" color="black">
             online
           </Typography>
@@ -129,20 +129,21 @@ const ChatArea = (props) => {
       <Box sx={chatStyle} ref={myRef}>
         {props.messages &&
           props.messages.map((e, i) => {
+            () =>
+              e.UserId == props.loginUser
+                ? console.log("outgoing")
+                : console.log("incoming");
 
-            ()=>e.UserId == props.loginUser ? console.log('outgoing',) : console.log("incoming")
-
-            return(
-            <Chat
-              key={i}
-              message={e.messageText}
-              time={e.time}
-              loginUser={props.loginUser}
-              UserId={e.userId}
-            ></Chat>
-            )
-          }
-          )}
+            return (
+              <Chat
+                key={i}
+                message={e.messageText}
+                time={e.time}
+                loginUser={props.loginUser}
+                UserId={e.userId}
+              ></Chat>
+            );
+          })}
       </Box>
       <Box>
         <form onSubmit={handleSubmit(sendHandler)}>
@@ -169,12 +170,10 @@ const ChatArea = (props) => {
                   <InputAdornment position="start">
                     {/* {emojiSelector? <Picker onEmojiClick={onEmojiClick} /> : null} */}
                     <IconButton>
-                      <MoodIcon
-                        onClick={emojiOnClickHandler} color="primary"
-                      />
+                      <MoodIcon /* onClick={emojiOnClickHandler} */ color="primary" />
                     </IconButton>
                     <IconButton>
-                      <SendIcon onClick={sendHandler} color="primary" />
+                      <SendIcon onClick={()=>sendHandler} color="primary" />
                     </IconButton>
                   </InputAdornment>
                 ),

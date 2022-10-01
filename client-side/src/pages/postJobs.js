@@ -26,17 +26,20 @@ import axios from "axios";
 import { useForm } from 'react-hook-form'
 import {useState,useEffect} from 'react'
 import {useRouter} from 'next/router'
+import cookie from 'js-cookie'
 
 const PostJob = () => {
 
-  const router = useRouter()
-  const {
-    query: {loginUser}
-  }  = router
+  // const router = useRouter()
+  // const {
+  //   query: {loginUser}
+  // }  = router
 
-  const props = {
-    loginUser
-  }
+  // const props = {
+  //   loginUser
+  // }
+
+  const loginUser = cookie.get("loginUser")
   
   const { register, handleSubmit } = useForm();
   const [jobType, setJobType] = useState('')
@@ -50,13 +53,13 @@ const PostJob = () => {
     const postedJob = {
       ...job,
       JobType: jobType,
-      userId: props.loginUser,
+      userId: loginUser,
       PostedDate: datetime
     }
 
     const config ={
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + cookie.get("token"),
       }
     }
 

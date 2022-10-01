@@ -8,9 +8,8 @@ const PostedJob =({job,loginUser,loginRole})=>{
         const postUser = e.userId
         Router.push({
             pathname: "/messages",
-            query: {postUser,loginUser}
+            query: {postUser}
           })
-        console.log(loginUser)
     }
     return(
         <>
