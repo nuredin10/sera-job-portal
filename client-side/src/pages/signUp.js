@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Dropdown from "react-dropdown";
 import Image from "next/image";
 import {
   FormControl,
@@ -24,25 +23,47 @@ import {
 
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Router from "next/router";
+import cookie from 'js-cookie'
 
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
 
+  const [sex, setSex] = useState("");
+
+  const handleChange = (event) => {
+    setSex(event.target.value);
+  };
   const newUser = (user) => {
+    const registerUser = {
+      ...user,
+      Sex: sex,
+    };
+    console.log(user);
+    console.log(registerUser);
+
     axios
-      .post("https://localhost:44369/api/Auth/signup", user)
+      .post("https://localhost:44369/api/User/addUser", registerUser)
       .then(function (response) {
-        checkUser;
+        cookie.set("token", response.data.token);
+        cookie.set("user", response.data.user);
+
+        const loginUser = response.data.userId;
+        const loginRole = response.data.user.role;
+
+        response.data.role == "Employee"
+          ? Router.push({
+              pathname: "/employee",
+              query: { loginUser,loginRole },
+            })
+          : Router.push({
+              pathname: "/employer",
+              query: { loginUser,loginRole },
+            });
       })
       .catch(function (error) {
         console.log(error);
       });
-  };
-
-  const [sex, setSex] = useState('');
-
-  const handleChange = (event) => {
-    setSex(event.target.value);
   };
 
   return (
@@ -68,7 +89,7 @@ const SignUp = () => {
         }}
       >
         <Grid container spacing={4}>
-          <Grid item lg={6} md={6} sm={12} >
+          <Grid item lg={6} md={6} sm={12}>
             <Image src="/signup-svg.svg" width="500" height="500"></Image>
           </Grid>
           <Grid
@@ -139,15 +160,26 @@ const SignUp = () => {
                   <TextField
                     sx={{ backgroundColor: "transparent" }}
                     required
+                    name="Username"
+                    label="Username"
+                    type="text"
+                    fullWidth
+                    {...register("Username")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
                     name="Age"
                     label="Age"
-                    type="text"
+                    type="number"
                     fullWidth
                     {...register("Age")}
                   />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
-                <InputLabel id="demo-simple-select-label">Sex</InputLabel>
+                  <InputLabel id="demo-simple-select-label">Sex</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -176,6 +208,17 @@ const SignUp = () => {
                   <TextField
                     sx={{ backgroundColor: "transparent" }}
                     required
+                    name="Location"
+                    label="Location"
+                    type="text"
+                    fullWidth
+                    {...register("Location")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
                     name="Address"
                     label="Address"
                     type="text"
@@ -187,22 +230,31 @@ const SignUp = () => {
                   <TextField
                     sx={{ backgroundColor: "transparent" }}
                     required
-                    name="Phone_Number"
+                    name="PhoneNumber"
                     label="Phone number"
                     type="number"
                     fullWidth
-                    {...register("Phone_Number")}
+                    {...register("PhoneNumber")}
                   />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
                   <TextField
                     sx={{ backgroundColor: "transparent" }}
-                    required
-                    name="Educational_level"
+                    name="CompanyName"
+                    label="CompanyName"
+                    type="text"
+                    fullWidth
+                    {...register("CompanyName")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    name="EducationalLevel"
                     label="Educational Level"
                     type="text"
                     fullWidth
-                    {...register("Educational_level")}
+                    {...register("EducationalLevel")}
                   />
                 </Grid>
                 <Grid item lg={12} md={12} sm={12}>
@@ -214,6 +266,17 @@ const SignUp = () => {
                     type="text"
                     fullWidth
                     {...register("Bio")}
+                  />
+                </Grid>
+                <Grid item lg={12} md={12} sm={12}>
+                  <TextField
+                    sx={{ backgroundColor: "transparent" }}
+                    required
+                    name="Role"
+                    label="Role"
+                    type="text"
+                    fullWidth
+                    {...register("Role")}
                   />
                 </Grid>
                 <Grid item sx={{ width: "80%" }}>
@@ -228,7 +291,7 @@ const SignUp = () => {
                   >
                     Create Account
                   </Button>
-                  <Button sx={{ width: "40%" }} variant="outlined" >
+                  <Button sx={{ width: "40%" }} variant="outlined">
                     Cancel
                   </Button>
                 </Grid>

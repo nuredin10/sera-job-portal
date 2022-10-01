@@ -21,6 +21,7 @@ namespace Sera_job_portal_api.Models
         public string Location { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
+        public string CompanyName { get; set; }
         public string EducationalLevel { get; set; }
         public string Bio { get; set; }
         public string Role { get; set; }

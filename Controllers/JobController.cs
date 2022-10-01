@@ -38,5 +38,14 @@ namespace Sera_job_portal_api.Controllers
             _context.SaveChanges();
             return Ok();
         }
+
+        [HttpPost("findJob")]
+        public IActionResult FindJOb(Job job)
+        {
+            var jobs = _context.Jobs.Where(e => e.JobTitle == job.JobTitle);
+            return Ok(jobs);
+        }
+
+        
     }
 }

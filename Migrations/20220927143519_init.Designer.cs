@@ -10,7 +10,7 @@ using Sera_job_portal_api.Models;
 namespace Sera_job_portal_api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220925154748_init")]
+    [Migration("20220927143519_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,9 @@ namespace Sera_job_portal_api.Migrations
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ToUserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
@@ -96,6 +99,9 @@ namespace Sera_job_portal_api.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EducationalLevel")

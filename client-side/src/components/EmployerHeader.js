@@ -1,6 +1,7 @@
-import { Button, Container, Box, Grid, Link, Typography } from "@mui/material";
+import { Button, Container, Box, Grid, Link, Typography,Avatar } from "@mui/material";
 import Head from "next/head";
 import Router from "next/router";
+import cookie from 'js-cookie'
 
 const EmployerNavItems = [
   {
@@ -16,19 +17,25 @@ const EmployerNavItems = [
     display: "Messages",
   },
   {
-    href: "/employer/findEmployer",
+    href: "/findEmployer",
     display: "Find Employer",
   },
 ];
 
-export const EmployerHeader = ({ loginUser }) => {
+export const EmployerHeader = ({ loginUser,loginRole }) => {
   
   const linkOnClickHandler = (e) => {
+
     Router.push({
       pathname: e.href,
-      query: { loginUser },
+      query: { loginUser,loginRole },
     });
+
   };
+
+  const logoutHandler =()=>{
+    cookie.set('token', '')
+  }
 
   return (
     <>
@@ -77,11 +84,6 @@ export const EmployerHeader = ({ loginUser }) => {
               <Grid item key={i}>
                 <Box
                   onClick={() => linkOnClickHandler(e)}
-                  // href={{
-                  //   pathname: "Messages",
-                  //   query: loginUser
-                  // }}
-                  // as={`loginUser/${loginUser}`}
                   sx={{
                     fontFamily: "inter",
                     textDecoration: "none",
@@ -96,6 +98,7 @@ export const EmployerHeader = ({ loginUser }) => {
           </Grid>
 
           <Grid item>
+            
             <Button
               onClick={function () {
                 Router.push({
@@ -107,6 +110,9 @@ export const EmployerHeader = ({ loginUser }) => {
             >
               Post Job
             </Button>
+          </Grid>
+          <Grid item>
+            <Avatar src='/log.png' href='/profile' sx={{cursor: 'pointer', ml: 2}}></Avatar>   
           </Grid>
         </Grid>
       </Box>

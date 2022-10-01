@@ -166,8 +166,6 @@ C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\Sera-job-porta
 C:\Users\LENOVO LEGION\Documents\Code\job-portal\obj\Debug\net5.0\ref\Sera-job-portal-api.dll
 =======
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-<<<<<<< HEAD
 D:\Sera Job Portal\Sera-job-portal-api\bin\Debug\net5.0\Newtonsoft.Json.dll
-=======
 >>>>>>> main
 >>>>>>> naod-branch

@@ -19,93 +19,6 @@ namespace Sera_job_portal_api.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Sera_job_portal_api.Models.Employee", b =>
-                {
-                    b.Property<int>("EmployeeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Bio")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EducationalLevel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("First_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Last_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Middle_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone_Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Sex")
-                        .HasColumnType("bit");
-
-                    b.HasKey("EmployeeID");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("Sera_job_portal_api.Models.Employer", b =>
-                {
-                    b.Property<int>("EmployerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("First_Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Last_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Middle_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("phone_Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("EmployerID");
-
-                    b.ToTable("Employers");
-                });
-
             modelBuilder.Entity("Sera_job_portal_api.Models.Job", b =>
                 {
                     b.Property<long>("JobId")
@@ -117,18 +30,15 @@ namespace Sera_job_portal_api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JobDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("JobPrice")
                         .HasColumnType("bigint");
 
                     b.Property<string>("JobTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JobType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -145,8 +55,6 @@ namespace Sera_job_portal_api.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Jobs");
-<<<<<<< HEAD
-=======
                 });
 
             modelBuilder.Entity("Sera_job_portal_api.Models.Message", b =>
@@ -161,6 +69,9 @@ namespace Sera_job_portal_api.Migrations
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ToUserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -186,6 +97,9 @@ namespace Sera_job_portal_api.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EducationalLevel")
@@ -224,7 +138,6 @@ namespace Sera_job_portal_api.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
->>>>>>> main
                 });
 
             modelBuilder.Entity("Sera_job_portal_api.Models.Job", b =>

@@ -17,9 +17,11 @@
     "@mui/material": "^5.10.3",
     "axios": "^0.27.2",
     "emoji-picker-react": "^3.6.2",
+    "js-cookie": "^3.0.1",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropdown": "^1.10.0",
     "react-hook-form": "^7.36.0",
     "react-hooks-useform": "^0.1.86"
   },

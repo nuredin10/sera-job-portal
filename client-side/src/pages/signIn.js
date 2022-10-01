@@ -20,38 +20,44 @@ import {
   Grid,
   DatePicker,
 } from "@mui/material";
-
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Router from "next/router";
 
+import Router from "next/router";
+import cookie from 'js-cookie';
 
 const SignIn = () => {
+
+
+
   const { register, handleSubmit } = useForm();
+  
   const [currentUser, setCurrentUser] = useState();
 
   const newUser = (user) => {
     axios.post("https://localhost:44369/api/Auth/signin", user)
     .then(function (response) {
-      console.log(response.data.token)
-      localStorage.setItem("token",response.data.token)
+      console.log(response)
+      
+      cookie.set('token', response.data.token)
+      cookie.set('user', response.data.user)
+      // localStorage.setItem("token",response.data.token)
       
       const loginUser = response.data.user.userId;
+      const loginRole = response.data.user.role;
+
       
       response.data.user.role === "Employee" ? (
           Router.push({
             pathname: "/employee",
-            query: {loginUser}
+            query: {loginUser,loginRole}
           })
         ) : (
           Router.push({
             pathname: "/employer",
-            query: {loginUser}
+            query: {loginUser,loginRole}
           })
         )
-        
-        
-        
       })  
       .catch(function (error) {
         console.log(error);
@@ -138,7 +144,7 @@ const SignIn = () => {
                     }}
                     variant="contained"
                   >
-                    Post
+                    Login
                   </Button>
                   <Button sx={{ width: "40%" }} variant="outlined" size="large">
                     Cancel

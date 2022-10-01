@@ -45,7 +45,7 @@ const Clients = [
   },
 ];
 
-const ChatSideBar = () => {
+const ChatSideBar = ({usersToChat,setSelectedUser}) => {
   const clientStyle = {
     backgroundColor: "transparent",
     display: "flex",
@@ -73,6 +73,11 @@ const ChatSideBar = () => {
       borderRadius: '10px'
     }
   };
+
+  const selectChatHandler =(e)=>{
+    // console.log("Selected to chat",e)
+    setSelectedUser(e.userId);
+  }
 
 
   return (
@@ -109,16 +114,16 @@ const ChatSideBar = () => {
       </Typography>
       <Divider sx={{ borderColor: "#C4C4C4", mt: 3 }} />
       <Box sx={scrollStyle}>
-        {Clients.map((e, i) => (
-          <Box key={i}>
+        {usersToChat.map((e, i) => (
+          <Box key={i} onClick={()=>selectChatHandler(e)}>
             <Box sx={clientStyle}>
               <Avatar src={e.Avatar} sx={{ ml: 3 }}></Avatar>
               <Box sx={{ px: 2 }}>
                 <Typography variant="body1" color="black">
-                  {e.Name}
+                  {e.firstName}
                 </Typography>
                 <Typography variant="caption" color="black">
-                  {e.LastMessage}
+                  {/* {e.LastMessage} */}
                 </Typography>
               </Box>
             </Box>
