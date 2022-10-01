@@ -16,6 +16,32 @@ import { useRouter } from "next/router";
 import cookie from "js-cookie";
 
 const Jobs = () => {
+
+  const jobListStyle = {
+    // border: '1px solid red',
+    borderRadius: "10px",
+    backgroundColor: "background.default",
+    pr: "5%",
+    pt: "5%",
+    mr: "3%",
+    height: '130vh',
+    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    // border: '1px solid red',
+    overflowY: "scroll",
+    "&::-webkit-scrollbar": {
+      width: "0.5em",
+      borderRadius: "10px",
+    },
+    "&::-webkit-scrollbar-track": {
+      "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "rgba(0,0,0,.3)",
+      outline: "none",
+      borderRadius: "10px",
+    },
+  };
+
   const [searchValue, setSearchValue] = useState("");
 
   const [jobs, setJobs] = useState([]);
@@ -73,6 +99,8 @@ const Jobs = () => {
       });
   }, []);
 
+
+
   // console.log(jobs)
   // console.log(searchedJob)
   return (
@@ -96,7 +124,7 @@ const Jobs = () => {
           backgroundColor: "background.paper",
         }}
       >
-        <Grid container spacing={3}>
+        <Grid container spacing={3} sx={{pb: 10}}>
           {loginRole == "Employer" ? (
             <Grid item lg={12} md={12} sm={12}>
               <EmployerHeader />
@@ -122,14 +150,7 @@ const Jobs = () => {
           </Grid>
           <Grid item lg={6} sm={8} sx={{}}>
             <Box
-              sx={{
-                borderRadius: "10px",
-                backgroundColor: "background.default",
-                pr: "5%",
-                pt: "5%",
-                mr: "3%",
-                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-              }}
+              sx={jobListStyle}
             >
               <SearchBar setSearchValue={setSearchValue} />
               {/* <Typography variant="h1" color="black">{searchValue}</Typography> */}

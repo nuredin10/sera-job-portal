@@ -39,31 +39,7 @@ const ChatArea = (props) => {
   };
 
   const [userToChat, setUserToChat] = useState();
-
-  // const [value, setValue] = useState("");
-  // const [message, setMessage] = useState("");
   const { register, handleSubmit, reset } = useForm();
-  // const [chosenEmoji, setChosenEmoji] = useState(null);
-  // const [emojiSelector, setEmojiSelector] = useState(false);
-
-  // const onEmojiClick = (event, emojiObject) => {
-  //   setChosenEmoji(emojiObject);
-  // };
-
-  const emojiOnClickHandler = () => {
-    // setEmojiSelector(emoji=>!emoji);
-  };
-  // const messageOnChangeHandler =(e)=>{
-  //   setValue(e.target.value);
-  //   // console.log(value)
-
-  // }
-
-  // const handleKeyDown = event => {
-  //   if (event.key === 'Enter') {
-  //     sendHandler();
-  //   }
-  // };
 
   const sendHandler = (text) => {
     // var currentdate = new Date();
@@ -194,10 +170,10 @@ const ChatArea = (props) => {
                   <InputAdornment position="start">
                     {/* {emojiSelector? <Picker onEmojiClick={onEmojiClick} /> : null} */}
                     <IconButton>
-                      <MoodIcon onClick={emojiOnClickHandler} color="primary" />
+                      <MoodIcon /* onClick={emojiOnClickHandler} */ color="primary" />
                     </IconButton>
                     <IconButton>
-                      <SendIcon onClick={sendHandler} color="primary" />
+                      <SendIcon onClick={()=>sendHandler} color="primary" />
                     </IconButton>
                   </InputAdornment>
                 ),

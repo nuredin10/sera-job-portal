@@ -156,7 +156,7 @@ const Profile = () => {
                     {currentUser.bio}
                   </Typography>
 
-                  <Grid container spacing={5} sx={{ mt: 2, border: '1px solid red',width: '100%' }}>
+                  <Grid container spacing={5} sx={{ mt: 2,width: '100%' }}>
                     <Grid item xs={2}>
                       <Typography variant="h6" color="text.primary">
                         $50.00
