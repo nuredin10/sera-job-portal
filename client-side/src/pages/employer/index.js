@@ -3,17 +3,17 @@ import Image from "next/image";
 import {Box, Grid, Button, Typography} from '@mui/material'
 import { EmployerHeader } from "../../components/EmployerHeader";
 import {useRouter} from 'next/router'
-
+import cookie from 'js-cookie'
 const Employer = () => {
 
-  const router = useRouter()
-  const {
-    query: {loginUser,loginRole}
-  }  = router
+  // const router = useRouter()
+  // const {
+  //   query: {loginUser,loginRole}
+  // }  = router
 
-  const props = {
-    loginUser,loginRole
-  }
+  // const props = {
+  //   loginUser,loginRole
+  // }
 
   
 
@@ -72,7 +72,7 @@ const Employer = () => {
       >
         <Grid container spacing={0}>
           <Grid item lg={12} md={12} sm={12}>
-            <EmployerHeader loginUser={props.loginUser} loginRole={props.loginRole}/>
+            <EmployerHeader/>
           </Grid>
           <Grid item sx={{width: '100%', height: '70vh'}}>
             <Box style={styles.paperContainer}>

@@ -45,21 +45,8 @@ const SignUp = () => {
     axios
       .post("https://localhost:44369/api/User/addUser", registerUser)
       .then(function (response) {
-        cookie.set("token", response.data.token);
-        cookie.set("user", response.data.user);
-
-        const loginUser = response.data.userId;
-        const loginRole = response.data.user.role;
-
-        response.data.role == "Employee"
-          ? Router.push({
-              pathname: "/employee",
-              query: { loginUser,loginRole },
-            })
-          : Router.push({
-              pathname: "/employer",
-              query: { loginUser,loginRole },
-            });
+        Router.push("/signIn")
+        
       })
       .catch(function (error) {
         console.log(error);

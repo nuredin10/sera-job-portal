@@ -17,14 +17,15 @@ const Messages = () => {
 
   const router = useRouter();
   const {
-    query: { postUser,loginUser,loginRole },
+    query: { postUser},
   } = router;
 
   const props = {
     postUser,
-    loginUser,
-    loginRole
   };
+
+  const loginUser = cookie.get("loginUser")
+  const loginRole = cookie.get("loginRole")
 
 
   const connection = new signalR.HubConnectionBuilder()
@@ -76,7 +77,7 @@ const Messages = () => {
 
       const selectUserToChat = {
         toUserId : selectedUser.toString(),
-        userId : props.loginUser
+        userId : loginUser
       }
       // console.log(selectUserToChat)
 
@@ -88,10 +89,10 @@ const Messages = () => {
       .catch(function(res){
         console.log(res)
       })
+      props.postUser = selectedUser
       
     },[selectedUser])
-
-
+    const toUserId = selectedUser == '' ? props.postUser : selectedUser;
   
   return (
     <>
@@ -116,7 +117,7 @@ const Messages = () => {
       >
         <Grid container>
         {
-            props.loginRole == "Employer" ? (
+            loginRole == "Employer" ? (
               <Grid item lg={12} md={12} sm={12}>
             <EmployerHeader/>
           </Grid>
@@ -131,7 +132,7 @@ const Messages = () => {
               <ChatSideBar usersToChat={usersToChat} setSelectedUser={setSelectedUser}></ChatSideBar>
             </Grid>
             <Grid item lg={8} md={12} sm={12}>              
-              <ChatArea messages={messages} connection={connection} loginUser={props.loginUser} postUser={postUser} selectedUser={selectedUser}></ChatArea>
+              <ChatArea messages={messages} connection={connection} loginUser={loginUser} postUser={toUserId} ></ChatArea>
             </Grid>
           </Grid>
         </Grid>

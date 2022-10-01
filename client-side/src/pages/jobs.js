@@ -10,67 +10,69 @@ import JobsRightSide from "../components/JobsRightSide";
 import Posts from "../components/posts";
 import SearchBar from "../components/searchBar";
 import PostedJob from "../components/postedJob";
-import {useState, useEffect} from 'react'
-import axios from 'axios'
-import {useRouter} from 'next/router'
-import cookie from 'js-cookie'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import cookie from "js-cookie";
 
 const Jobs = () => {
-
   const [searchValue, setSearchValue] = useState("");
 
   const [jobs, setJobs] = useState([]);
   const [searchedJob, setSearchedJob] = useState([]);
 
-  const router = useRouter()
-  const {
-    query: {loginUser,loginRole}
-  }  = router
+  // const router = useRouter();
+  // const {
+  //   query: { loginUser, loginRole },
+  // } = router;
 
-  const props = {
-    loginUser,loginRole
-  }
+  // const props = {
+  //   loginUser,
+  //   loginRole,
+  // };
+  const loginUser = cookie.get("loginUser")
+  const loginRole = cookie.get("loginRole")
 
-  
-  useEffect(()=>{
-    const config ={
+  useEffect(() => {
+    const config = {
       headers: {
         Authorization: "Bearer " + cookie.get("token"),
-      }
-    }
+      },
+    };
 
     const jobSearch = {
-      jobTitle: searchValue
-    }
+      jobTitle: searchValue,
+    };
 
-    axios.post("https://localhost:44369/findJob",jobSearch,config)
-    .then(function(res){
-      setJobs(res.data)
-    })
-    .catch(function(res){
-      console.log(res)
-    })
+    axios
+      .post("https://localhost:44369/findJob", jobSearch, config)
+      .then(function (res) {
+        setJobs(res.data);
+      })
+      .catch(function (res) {
+        console.log(res);
+      });
     // console.log(jobSearch)
-  },[searchValue])
+  }, [searchValue]);
 
-  useEffect(()=>{
-
-    const config ={
+  useEffect(() => {
+    const config = {
       headers: {
         Authorization: "Bearer " + cookie.get("token"),
-      }
-    }
-      axios.get("https://localhost:44369/jobs/getAllJob",config)
-      .then(function(res){
+      },
+    };
+    axios
+      .get("https://localhost:44369/jobs/getAllJob", config)
+      .then(function (res) {
         // console.log(res)
-        setJobs(res.data)
+        setJobs(res.data);
         // console.log(jobs)
       })
-      .catch(function(res){
-        console.log(res)
-      })
-  },[])
-  
+      .catch(function (res) {
+        console.log(res);
+      });
+  }, []);
+
   // console.log(jobs)
   // console.log(searchedJob)
   return (
@@ -95,20 +97,27 @@ const Jobs = () => {
         }}
       >
         <Grid container spacing={3}>
-          {
-            props.loginRole == "Employer" ? (
-              <Grid item lg={12} md={12} sm={12}>
-            <EmployerHeader/>
-          </Grid>
-            ) : (
-              <Grid item lg={12} md={12} sm={12}>
-            <EmployeeHeader/>
-          </Grid>
-            )
-          }
-          
+          {loginRole == "Employer" ? (
+            <Grid item lg={12} md={12} sm={12}>
+              <EmployerHeader />
+            </Grid>
+          ) : (
+            <Grid item lg={12} md={12} sm={12}>
+              <EmployeeHeader />
+            </Grid>
+          )}
 
-          <Grid item lg={3} sm={3} sx={{ mt: '1.5%', backgroundColor: 'background.default', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",}} >
+          <Grid
+            item
+            lg={3}
+            sm={3}
+            sx={{
+              mt: "1.5%",
+              backgroundColor: "background.default",
+              borderRadius: "10px",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+            }}
+          >
             <JobsLeftSide />
           </Grid>
           <Grid item lg={6} sm={8} sx={{}}>
@@ -118,20 +127,36 @@ const Jobs = () => {
                 backgroundColor: "background.default",
                 pr: "5%",
                 pt: "5%",
-                mr: '3%',
+                mr: "3%",
                 boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
               }}
             >
-              <SearchBar setSearchValue={setSearchValue}/>
+              <SearchBar setSearchValue={setSearchValue} />
               {/* <Typography variant="h1" color="black">{searchValue}</Typography> */}
-              {jobs && jobs.map((job)=>(
-                <PostedJob job={job} key={job.jobId} loginUser={props.loginUser} loginRole={props.loginRole}/>
-              ))}
-              
+              {jobs &&
+                jobs.map((job) => (
+                  <PostedJob
+                    job={job}
+                    key={job.jobId}
+                    loginUser={loginUser}
+                    loginRole={loginRole}
+                  />
+                ))}
             </Box>
           </Grid>
 
-          <Grid item lg={3} sm={3} sx={{ mt: '1.5%', ml: '0' ,backgroundColor: 'background.default', borderRadius: '10px', boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",}}>
+          <Grid
+            item
+            lg={3}
+            sm={3}
+            sx={{
+              mt: "1.5%",
+              ml: "0",
+              backgroundColor: "background.default",
+              borderRadius: "10px",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+            }}
+          >
             <Box>
               <JobsRightSide />
             </Box>

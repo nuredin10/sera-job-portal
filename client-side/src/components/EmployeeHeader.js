@@ -21,16 +21,15 @@ export const EmployeeHeader = ({loginUser,loginRole}) => {
 
   const linkOnClickHandler = (e) => {
 
-    Router.push({
-      pathname: e.href,
-      query: { loginUser,loginRole },
-    });
+    Router.push(e.href);
 
   };
 
-  const logoutHandler =()=>{
-    cookie.set('token', '')
+  const profileClick =()=>{
+    Router.push('/profile')
   }
+
+
 
   return (
     <>
@@ -83,7 +82,7 @@ export const EmployeeHeader = ({loginUser,loginRole}) => {
             ))}
           </Grid>
           <Grid item>
-            <Avatar src='/log.png' href='/profile' sx={{cursor: 'pointer'}}></Avatar>   
+            <Avatar src='/log.png' onClick={profileClick} sx={{cursor: 'pointer'}}></Avatar>   
           </Grid>
         </Grid>
       </Box>

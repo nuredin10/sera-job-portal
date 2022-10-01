@@ -40,24 +40,27 @@ const SignIn = () => {
       console.log(response)
       
       cookie.set('token', response.data.token)
-      cookie.set('user', response.data.user)
+      cookie.set('loginUser', response.data.user.userId)
+      cookie.set('loginRole', response.data.user.role)
       // localStorage.setItem("token",response.data.token)
       
-      const loginUser = response.data.user.userId;
-      const loginRole = response.data.user.role;
+      // const loginUser = response.data.user.userId;
+      // const loginRole = response.data.user.role;
 
       
-      response.data.user.role === "Employee" ? (
-          Router.push({
-            pathname: "/employee",
-            query: {loginUser,loginRole}
-          })
-        ) : (
-          Router.push({
-            pathname: "/employer",
-            query: {loginUser,loginRole}
-          })
-        )
+      // response.data.user.role === "Employee" ? (
+      //     Router.push({
+      //       pathname: "/employee",
+      //       query: {loginUser,loginRole}
+      //     })
+      //   ) : (
+      //     Router.push({
+      //       pathname: "/employer",
+      //       query: {loginUser,loginRole}
+      //     })
+      //   )
+      response.data.user.role === "Employee" ? Router.push("/employee") : Router.push("/employer")
+
       })  
       .catch(function (error) {
         console.log(error);
@@ -83,14 +86,18 @@ const SignIn = () => {
         component="main"
         sx={{
           width: "100%",
-          height: "auto",
-          p: 5,
+          height: "100vh",
           backgroundColor: "background.default",
         }}
       >
+        
+        <Box sx={{ height: '10%', ml: '5%'}}> 
+          <Image src="/seraLogo.jpg" width='100' height='100'></Image>
+        </Box>
         <Grid container spacing={4}>
-          <Grid item lg={6} md={6} sm={12}>
-            <Image src="/login-svg.svg" width="500" height="500"></Image>
+          
+          <Grid item lg={6} md={6} sm={12} sx={{mt: '5%'}}>
+            <Image src="/login-svg.svg" width="500" height="450"></Image>
           </Grid>
           <Grid
             item
