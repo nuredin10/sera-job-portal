@@ -92,10 +92,7 @@ const Employer = () => {
               </Typography>
 
               <Typography variant="subtitle2" color="black" sx={{ mt: 2, textAlign: 'center' }}>
-                lorem Sed ut perspiciatis unde loomis omnis iste natus error sit
-                voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.{" "}
+               Welcome employer we home you Get the best service possible this web app was designed to make life as an employer as Easy and efficient as possible
               </Typography>
               <Box
                 sx={{
