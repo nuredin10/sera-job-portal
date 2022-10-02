@@ -75,7 +75,7 @@ export default function Home({}) {
               </Typography>
               <Typography variant="subtitle2" color="black" sx={{ mt: 2 }}>
                 lorem Sed ut perspiciatis unde omnis iste natus error sit
-                voluptatem accusantium doloremque laudantium, totam rem aperiam,
+                voluptatem accusantium heeeloo sakpdhwoqhdo doloremque laudantium, totam rem aperiam,
                 eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae dicta sunt explicabo.{" "}
               </Typography>
