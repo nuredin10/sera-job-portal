@@ -41,9 +41,6 @@ export default function Home({}) {
         >
           <Grid item lg={3} md={2} sm={2} ml={7}>
             <img src="/seraLogo.jpg" width='20%' ></img>
-            {/* <Typography variant="h2" color="black">
-              LOGO
-            </Typography> */}
           </Grid>
           <Grid itm lg={1} sm={2} md={2}>
             <Button href="/signIn" variant="contained" size="small">
