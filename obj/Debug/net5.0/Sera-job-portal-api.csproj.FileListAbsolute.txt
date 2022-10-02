@@ -62,3 +62,4 @@ D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\Sera-job-portal-api.dll
 D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\ref\Sera-job-portal-api.dll
 D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\Sera-job-portal-api.pdb
 D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\Sera-job-portal-api.genruntimeconfig.cache
+D:\Sera Job Portal\Sera-job-portal-api\obj\Debug\net5.0\Sera-job-portal-api.csproj.AssemblyReference.cache
