@@ -93,7 +93,7 @@ export default function Home({}) {
             </Box>
           </Grid>
           <Grid item lg={6} md={6} sm={12}>
-            <Box sx={{}}>
+            <Box sx={{boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",borderRadius: '20%'}}>
               <Image
                 src="/homepage.svg"
                 layout="responsive"
