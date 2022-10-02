@@ -87,7 +87,7 @@ const Employee = () => {
         <Grid container sx={{ height: "90vh", width: "100%", pt: 5 }}>
           <Grid item lg={6} md={6} sm={12}>
             <Box
-              width="91%"
+              width="90%"
               height="80%"
               sx={{
                 m: "auto",
