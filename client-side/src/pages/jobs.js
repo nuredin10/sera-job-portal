@@ -45,15 +45,6 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [searchedJob, setSearchedJob] = useState([]);
 
-  // const router = useRouter();
-  // const {
-  //   query: { loginUser, loginRole },
-  // } = router;
-
-  // const props = {
-  //   loginUser,
-  //   loginRole,
-  // };
   const loginUser = cookie.get("loginUser")
   const loginRole = cookie.get("loginRole")
 
