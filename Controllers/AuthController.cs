@@ -48,13 +48,8 @@ namespace Sera_job_portal_api.Controllers
                         new Claim("LastName", user.LastName),
                         new Claim("Email", user.Email),
                         new Claim("Username", user.Username),
-                   
-                       
-                       
                         new Claim("Address", user.Address),
                         new Claim("PhoneNumber", user.PhoneNumber),
-                      
-                      
                         new Claim("Role", user.Role),
 
 
@@ -82,12 +77,12 @@ namespace Sera_job_portal_api.Controllers
                 }
                 else
                 {
-                    return BadRequest("Invalid credentials");
+                    return BadRequest("Invalid credentials ");
                 }
             }
             else
             {
-                return BadRequest("some thing is wrong!!!");
+                return BadRequest("some thing is wrong!!");
             }
         }
         private async Task<User> GetUser(string email, string password)
