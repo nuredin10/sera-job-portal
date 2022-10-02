@@ -27,7 +27,7 @@ namespace Sera_job_portal_api.Controllers
             return Ok(user) ;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IActionResult getUser()
         {
