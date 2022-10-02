@@ -101,8 +101,8 @@ const Employee = () => {
               </Typography>
               
               <Typography variant="subtitle2" color="black" sx={{ mt: 2, textAlign: 'center' }}>
-                welcome to the employees and employers heaven you may say because we jeon the best of both world !!
-                  we hope you like and enjpoy our services .
+                welcome to the employees and employers heaven you may say because we join the best of both world !!
+                  we hope you like and enjoy our services .
               </Typography>
               <Box
                 sx={{
