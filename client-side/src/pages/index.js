@@ -62,13 +62,13 @@ export default function Home({}) {
               }}
             >
               <Typography color="black" variant="h1">
-                App That Will Make Your Life So Much Easier
+                App That Will Make Your Life So Much Easier.
               </Typography>
               <Typography
                 sx={{ color: "primary.main", mt: 2, textAlign: "left" }}
                 variant="h5"
               >
-                Finding Job is Easier Ever
+                Finding Job is Easier Than Ever.
               </Typography>
               <Typography variant="subtitle2" color="black" sx={{ mt: 2 }}>
                 lorem Sed ut perspiciatis unde omnis iste natus error sit
