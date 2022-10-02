@@ -99,10 +99,7 @@ export const EmployerHeader = ({ loginUser,loginRole }) => {
             
             <Button
               onClick={function () {
-                Router.push({
-                  pathname: "postJobs",
-                  query: { loginUser },
-                });
+                Router.push('/postJobs');
               }}
               variant="contained"
             >

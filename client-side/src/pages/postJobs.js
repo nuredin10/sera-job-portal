@@ -30,15 +30,6 @@ import cookie from 'js-cookie'
 
 const PostJob = () => {
 
-  // const router = useRouter()
-  // const {
-  //   query: {loginUser}
-  // }  = router
-
-  // const props = {
-  //   loginUser
-  // }
-
   const loginUser = cookie.get("loginUser")
   
   const { register, handleSubmit } = useForm();
