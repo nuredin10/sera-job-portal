@@ -23,19 +23,14 @@ const Chat = ({ message, loginUser, UserId, time }) => {
     color: status == "outgoing" ? "white" : "black",
     
   };
-  
-  postedTime = time.GetHour() + ' ' + time.getMinutes()
+
   return (
     <Box sx={chatStyle}>
       <Typography variant="body1">
         {message}
       </Typography>
       <Typography  variant="caption">
-        {
-          
-          postedTime
-        
-        }
+        {time}
       </Typography>
     </Box>
   );

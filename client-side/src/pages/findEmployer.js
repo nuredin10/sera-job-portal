@@ -26,6 +26,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 import cookie from "js-cookie";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Router from 'next/router'
 
 const findEmployee = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -58,6 +59,14 @@ const findEmployee = () => {
         console.log(res);
       });
   };
+
+  const directMessageHandler =(e)=>{
+    const postUser = e
+    Router.push({
+      pathname: "/messages",
+      query: {postUser}
+    })
+  }
 
   return (
     <>
@@ -222,7 +231,7 @@ const findEmployee = () => {
                           </Typography>
                         </Grid>
                       </Grid>
-                      <Button variant="contained" sx={{ mt: "5%" }}>
+                      <Button variant="contained" sx={{ mt: "5%" }} onClick={()=>directMessageHandler(e.userId)}>
                         Direct Message
                       </Button>
                     </Grid>

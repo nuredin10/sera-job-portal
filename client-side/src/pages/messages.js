@@ -81,7 +81,7 @@ const Messages = () => {
       }
 
       const selectUserToChat = {
-        toUserId : selectedUser.toString(),
+        toUserId : selectedUser.toString() == '' ? props.postUser : selectedUser.toString(),
         userId : loginUser
       }
       // console.log(selectUserToChat)
@@ -95,7 +95,7 @@ const Messages = () => {
       })
       props.postUser = selectedUser
       
-    },[selectedUser])
+    },[selectedUser,postUser])
     const toUserId = selectedUser == '' ? props.postUser : selectedUser;
   
   return (
