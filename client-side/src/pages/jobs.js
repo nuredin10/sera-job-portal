@@ -25,7 +25,6 @@ const Jobs = () => {
     mr: "3%",
     height: '130vh',
     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-    // border: '1px solid red',
     overflowY: "scroll",
     "&::-webkit-scrollbar": {
       width: "0.5em",
