@@ -167,7 +167,6 @@ export const theme = createTheme({
       main: '#D36B00',
     //   light: '#3FC79A',
       dark: '#0B815A',
-    //   contrastText: '#FFFFFF'
     },
 
     headerBg: {
