@@ -52,7 +52,7 @@ export default function Home({}) {
           </Grid>
         </Grid>
 
-        <Grid container sx={{ height: "90vh", width: "100%", pt: 5 }}>
+        <Grid container sx={{ height: "100vh", width: "80%", pt: 5 }}>
           <Grid item lg={6} md={6} sm={12}>
             <Box
               width="80%"
@@ -116,62 +116,62 @@ export default function Home({}) {
           <Grid item lg={12} md={12} sm={12}>
             <Grid container spacing={4}>
               <Grid item lg={4} md={6} sm={12}>
-                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '7%'}}>
+                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '8%'}}>
                   <Avatar src='/logo.png' width='1%' height="1%"></Avatar>
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde loomis omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
               <Grid item lg={4} md={6} sm={12}>
-                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '7%'}}>
+                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '8%'}}>
                   <Avatar src='/logo.png' width='1%' height="1%"></Avatar>
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde loomis omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
               <Grid item lg={4} md={6} sm={12}>
-                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '7%'}}>
+                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '8%'}}>
                   <Avatar src='/logo.png' width='1%' height="1%"></Avatar>
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde loomis omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
               <Grid item lg={4} md={6} sm={12}>
-                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '7%'}}>
-                  <Avatar src='/logo.png' width='1%' height="1%"></Avatar>
+                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '8%'}}>
+                  <Avatar src='/logo.png' width='1%' height="3%"></Avatar>
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde loomis omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
               <Grid item lg={4} md={6} sm={12}>
-                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '7%'}}>
+                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '8%'}}>
                   <Avatar src='/logo.png' width='1%' height="1%"></Avatar>
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde loomis omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
               <Grid item lg={4} md={6} sm={12}>
-                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '7%'}}>
+                <Box sx={{ p: '7%', boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", borderRadius: '8%'}}>
                   <Avatar src='/logo.png' width='1%' height="1%"></Avatar>
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde loomis omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
