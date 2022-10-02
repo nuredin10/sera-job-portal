@@ -18,7 +18,6 @@ import cookie from "js-cookie";
 const Jobs = () => {
 
   const jobListStyle = {
-    // border: '1px solid red',
     borderRadius: "10px",
     backgroundColor: "background.default",
     pr: "5%",
