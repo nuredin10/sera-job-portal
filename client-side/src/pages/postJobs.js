@@ -115,7 +115,7 @@ const PostJob = () => {
                   backgroundColor: "background.paper",
                   border: 1,
                   margin: "auto",
-                  borderRadius: "15px",
+                  borderRadius: "14px",
                   boxShadow:
                     "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;",
                 }}
