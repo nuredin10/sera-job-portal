@@ -5,14 +5,7 @@ import { EmployerHeader } from "../../components/EmployerHeader";
 import { useRouter } from "next/router";
 import cookie from "js-cookie";
 const Employer = () => {
-  // const router = useRouter()
-  // const {
-  //   query: {loginUser,loginRole}
-  // }  = router
 
-  // const props = {
-  //   loginUser,loginRole
-  // }
 
   const styles = {
     paperContainer: {
