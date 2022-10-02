@@ -184,7 +184,6 @@ export const theme = createTheme({
     },
     info: {
       main: '#20A6FC',
-    //   dark: '#0B79D0',
       contrastText: '#FFFFFF'
     },
     warning: {
