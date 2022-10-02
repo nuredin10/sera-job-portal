@@ -171,7 +171,7 @@ export default function Home({}) {
                   <Typography color="black" variant="h6" my={2}>
                     Web Development
                   </Typography>
-                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut perspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
+                  <Typography mb={3} variant="subtitle2" color="black">lorem Sed ut peefesfvesrspiciatis unde omnis perspiciatis unde omnis iste natus</Typography>
                   <Typography variant='caption' color="black">Learn more</Typography>
                 </Box>
               </Grid>
