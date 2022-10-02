@@ -27,9 +27,6 @@ export default function Home() {
         }}>
           <Grid container >
 
-
-            
-
             <Grid item>
               <Typography variant="h1" color="black">Home page here</Typography>
             </Grid>
