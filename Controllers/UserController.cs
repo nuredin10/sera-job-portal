@@ -52,7 +52,7 @@ namespace Sera_job_portal_api.Controllers
             return Ok(employee);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("FindUserById")]
         public IActionResult FindUserById(User user)
         {
