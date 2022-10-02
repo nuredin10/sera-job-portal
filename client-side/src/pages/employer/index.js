@@ -97,12 +97,7 @@ const Employer = () => {
               <Typography color="black" variant="h2">
                 Welcome aboard Employer
               </Typography>
-              {/* <Typography
-                sx={{ color: "primary.main", mt: 2, textAlign: "left" }}
-                variant="h5"
-              >
-                Finding Job is Easier Ever
-              </Typography> */}
+
               <Typography variant="subtitle2" color="black" sx={{ mt: 2, textAlign: 'center' }}>
                 lorem Sed ut perspiciatis unde omnis iste natus error sit
                 voluptatem accusantium doloremque laudantium, totam rem aperiam,
