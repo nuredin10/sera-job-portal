@@ -100,9 +100,6 @@ const Jobs = () => {
   }, []);
 
 
-
-  // console.log(jobs)
-  // console.log(searchedJob)
   return (
     <>
       <Head>
