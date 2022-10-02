@@ -71,10 +71,7 @@ export default function Home({}) {
                 Finding Job is Easier Than Ever.
               </Typography>
               <Typography variant="subtitle2" color="black" sx={{ mt: 2 }}>
-                lorem Sed ut perspiciatis unde omnis iste natus error sit
-                voluptatem accusantium heeeloo sakpdhwoqhdo doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo.{" "}
+                we will make your journey as comfortable and as efficient as possible 
               </Typography>
               <Box
                 sx={{
