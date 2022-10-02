@@ -31,7 +31,7 @@ const Employee = () => {
     const buttonStyle = {
         backgroundColor: 'headerBg.main',
         color: 'primary.main',
-        borderRadius: '5px',
+        borderRadius: '6px',
         height: '11%',
         "&:hover": {
           border: 1,
@@ -45,7 +45,7 @@ const Employee = () => {
     const imageStyle = {
         width: '80%',
         height: '100%',
-        borderRadius: "10px",
+        borderRadius: "9px",
         boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
     }
   return (
@@ -120,7 +120,7 @@ const Employee = () => {
             </Box>
           </Grid>
           <Grid item lg={6} md={6} sm={12}>
-            <Box sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",borderRadius: '20%'}}>
+            <Box sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",borderRadius: '23%'}}>
               <Image
                 src="/employee.svg"
                 layout="responsive"
