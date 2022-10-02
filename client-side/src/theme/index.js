@@ -160,7 +160,6 @@ export const theme = createTheme({
     primary: {
       main: '#42032C',
     //   light: '#828DF8',
-    //   dark: '#3832A0',
       contrastText: '#FFFFFF'
     },
     secondary: {
