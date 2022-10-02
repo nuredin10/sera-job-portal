@@ -35,7 +35,7 @@ const Employer = () => {
   const imageStyle = {
     width: "80%",
     height: "100%",
-    borderRadius: "10px",
+    borderRadius: "9%px",
     boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
   };
 
@@ -92,7 +92,7 @@ const Employer = () => {
               </Typography>
 
               <Typography variant="subtitle2" color="black" sx={{ mt: 2, textAlign: 'center' }}>
-                lorem Sed ut perspiciatis unde omnis iste natus error sit
+                lorem Sed ut perspiciatis unde loomis omnis iste natus error sit
                 voluptatem accusantium doloremque laudantium, totam rem aperiam,
                 eaque ipsa quae ab illo inventore veritatis et quasi architecto
                 beatae vitae dicta sunt explicabo.{" "}
@@ -113,7 +113,7 @@ const Employer = () => {
             </Box>
           </Grid>
           <Grid item lg={6} md={6} sm={12}>
-            <Box sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",borderRadius: '20%'}}>
+            <Box sx={{ boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",borderRadius: '23%'}}>
               <Image
                 src="/employee.svg"
                 layout="responsive"
