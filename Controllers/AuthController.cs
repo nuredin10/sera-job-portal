@@ -87,7 +87,7 @@ namespace Sera_job_portal_api.Controllers
             }
             else
             {
-                return BadRequest("fuck youuuuu");
+                return BadRequest("some thing is wrong!!!");
             }
         }
         private async Task<User> GetUser(string email, string password)
