@@ -48,13 +48,13 @@ namespace Sera_job_portal_api.Controllers
                         new Claim("LastName", user.LastName),
                         new Claim("Email", user.Email),
                         new Claim("Username", user.Username),
-                        new Claim("Age", user.Age.ToString()),
-                        new Claim("Sex", user.Sex),
-                        new Claim("Location", user.Location),
+                   
+                       
+                       
                         new Claim("Address", user.Address),
                         new Claim("PhoneNumber", user.PhoneNumber),
-                        new Claim("EducationalLevel", user.EducationalLevel),
-                        new Claim("Bio", user.Bio),
+                      
+                      
                         new Claim("Role", user.Role),
 
 
