@@ -1,8 +1,8 @@
 # sera-job-portal
-Sera Job portal is a website used for employees or employers to get together and fulfill their needs. We created our website by using API that we created using ASP.NET.
-We SQL Server for our backend and Nextjs for the frontend.
+Sera Job portal is a website used for employees or employers to get together and fulfill their needs. We created our website by using API that we created using ASP.NET
+with SQLServer for our backend and for the frontend Nextjs with MUI .
 
-For login we used JWT framework and for Messaging we used Signal R
+For authorization we used JWT framework and for Messaging we used SignalR
   SignalR: https://dotnet.microsoft.com/en-us/apps/aspnet/signalr
   JWT: https://jwt.io/introduction
   
