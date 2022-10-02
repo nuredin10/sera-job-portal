@@ -87,7 +87,7 @@ const Employee = () => {
         <Grid container sx={{ height: "90vh", width: "100%", pt: 5 }}>
           <Grid item lg={6} md={6} sm={12}>
             <Box
-              width="90%"
+              width="91%"
               height="80%"
               sx={{
                 m: "auto",
@@ -97,14 +97,9 @@ const Employee = () => {
               }}
             >
               <Typography color="black" variant="h2">
-                Welcome Aboard Employee
+                Welcome Aboard Employee!!!!
               </Typography>
-              {/* <Typography
-                sx={{ color: "primary.main", mt: 2, textAlign: "left" }}
-                variant="h5"
-              >
-                Finding Job is Easier Ever
-              </Typography> */}
+              
               <Typography variant="subtitle2" color="black" sx={{ mt: 2, textAlign: 'center' }}>
                 lorem Sed ut perspiciatis unde omnis iste natus error sit
                 voluptatem accusantium doloremque laudantium, totam rem aperiam,
