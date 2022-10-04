@@ -30,12 +30,17 @@ const Profile = () => {
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(()=>{
+    const config = {
+      headers: {
+        Authorization: "Bearer " + cookie.get("token"),
+      },
+    };
     const req = {
       UserId: loginUser,
     };
 
     axios
-      .post("https://localhost:44369/api/User/FindUserById", req)
+      .post("https://localhost:44369/api/User/FindUserById", req,config)
       .then(function (res) {
         setCurrentUser(res.data[0]);
       })

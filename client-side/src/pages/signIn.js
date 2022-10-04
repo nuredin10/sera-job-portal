@@ -29,41 +29,26 @@ import cookie from 'js-cookie';
 const SignIn = () => {
 
 
-
+  const [incorrectMatch, setIncorrectMatch] = useState(false);
   const { register, handleSubmit } = useForm();
   
   const [currentUser, setCurrentUser] = useState();
 
   const newUser = (user) => {
     axios.post("https://localhost:44369/api/Auth/signin", user)
-    .then(function (response) {
-      console.log(response)
-      
+    .then(function (response) {      
       cookie.set('token', response.data.token)
       cookie.set('loginUser', response.data.user.userId)
       cookie.set('loginRole', response.data.user.role)
-      // localStorage.setItem("token",response.data.token)
-      
-      // const loginUser = response.data.user.userId;
-      // const loginRole = response.data.user.role;
-
-      
-      // response.data.user.role === "Employee" ? (
-      //     Router.push({
-      //       pathname: "/employee",
-      //       query: {loginUser,loginRole}
-      //     })
-      //   ) : (
-      //     Router.push({
-      //       pathname: "/employer",
-      //       query: {loginUser,loginRole}
-      //     })
-      //   )
       response.data.user.role === "Employee" ? Router.push("/employee") : Router.push("/employer")
 
       })  
       .catch(function (error) {
-        console.log(error);
+        if(error.response.data == "Invalid credentials "){
+          setIncorrectMatch(true)
+          // console.log("Asdcascdasdcasdcadsc")
+        }
+        console.log(error.response.data);
       });
 
   };
@@ -141,6 +126,11 @@ const SignIn = () => {
                     {...register("Password")}
                   />
                 </Grid>
+                {incorrectMatch ? (
+                  <Grid item lg={12} md={12} sm={12}>
+                    <Typography variant="subtitle2" color='red'>Incorrect email or password</Typography>
+                  </Grid>
+                ) : null}
                 <Grid item sx={{ width: "80%" }}>
                   <Button
                     type="submit"

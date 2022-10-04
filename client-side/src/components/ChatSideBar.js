@@ -2,48 +2,6 @@ import { Box, Grid, Typography, Button, Divider, Avatar } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { TextField } from "@mui/material";
 
-const Clients = [
-  {
-    Avatar: "/logo.png",
-    Name: "Aura Margart",
-    LastMessage: "See you, Good bye!",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Joakim Anthonio",
-    LastMessage: "Hello how are you doing",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Amela Amanda ",
-    LastMessage: "When?",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Kristian Bastian",
-    LastMessage: "Feel free to ask me anything",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Aura Margart",
-    LastMessage: "See you, Good bye!",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Joakim Anthonio",
-    LastMessage: "Hello how are you doing",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Amela Amanda ",
-    LastMessage: "When?",
-  },
-  {
-    Avatar: "/logo.png",
-    Name: "Kristian Bastian",
-    LastMessage: "Feel free to ask me anything",
-  },
-];
 
 const ChatSideBar = ({usersToChat,setSelectedUser}) => {
   const clientStyle = {
@@ -57,7 +15,7 @@ const ChatSideBar = ({usersToChat,setSelectedUser}) => {
   };
 
   const scrollStyle = { 
-    height: 400, 
+    height: "70%", 
     overflow: "hidden", 
     overflowY: "scroll",
     '&::-webkit-scrollbar': {
@@ -119,7 +77,7 @@ const ChatSideBar = ({usersToChat,setSelectedUser}) => {
             <Box sx={clientStyle}>
               <Avatar src={e.Avatar} sx={{ ml: 3 }}></Avatar>
               <Box sx={{ px: 2 }}>
-                <Typography variant="body1" color="black">
+                <Typography variant="subtitle1" color="primary.main">
                   {e.firstName}
                 </Typography>
                 <Typography variant="caption" color="black">
